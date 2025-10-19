@@ -9,7 +9,6 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -19,7 +18,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (showMenu && !event.target.closest('.menu-container')) {
@@ -31,85 +29,91 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showMenu]);
 
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Solutions', path: '/solutions' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <nav className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div
-        className={`fixed top-10 w-full max-w-7xl z-50 transition-all duration-500 ${
+        className={`fixed top-0 w-full max-w-10xl z-50 transition-all duration-500 ${
           isScrolled 
-            ? " shadow-2xl py-2 rounded-4xl" 
-            : "bg-transparent py-4"
+            ? "shadow-2xl backdrop-blur-xl bg-[#22333B] py-3 rounded-xl border border-[#C6AC8F]" 
+            : "bg-[#22333B] py-4 border-b border-[#C6AC8F]"
         }`}
       >
         <div className="flex flex-col justify-between menu-container">
-          {/* Header Section */}
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2">
-            {/* Logo & Brand Name */}
-            <div className="flex flex-row gap-3 sm:gap-4 items-center">
+            <div 
+              className="flex flex-row gap-3 sm:gap-4 items-center cursor-pointer group"
+              onClick={() => navigate("/")}
+            >
               <img
                 src={logo}
-                alt="OrbitCraft Consultants Ltd"
-                className="size-12 sm:size-16 lg:size-20 cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => navigate("/")}
+                alt="Orbit Craft - Consulting, Construction, Real Estate"
+                className="size-8 sm:size-12 lg:size-12 transition-all duration-300 group-hover:scale-105"
               />
-              <p className={`text-lg sm:text-xl lg:text-2xl font-semibold transition-colors duration-300 ${
-                isScrolled ? "text-white" : "text-white"
-              }`}>
-                OrbitCraft Consultants Ltd
-              </p>
+              <div className="flex flex-col">
+                <h1 className="text-lg font-bold text-[#EAE0D5] transition-colors duration-300">
+                  ORBIT CRAFT
+                </h1>
+                <p className="text-[0.8rem] text-[#EAE0D5] font-light">
+                  CONSULTING • CONSTRUCTION • REAL ESTATE
+                </p>
+              </div>
             </div>
 
-            {/* Menu Button */}
-            {showMenu ? (
-              <span className="flex items-center gap-3 sm:gap-4 cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                <img
-                  className="w-6 sm:w-7 transition-all duration-300 hover:scale-110"
-                  onClick={() => setShowMenu(false)}
-                  src={close_icon}
-                  alt="Close menu"
-                />
-                <span className="text-base sm:text-lg lg:text-xl text-white font-semibold">CLOSE</span>
+            <button
+              className="flex items-center gap-3 sm:gap-4 cursor-pointer bg-[#C6AC8F] p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#C6AC8F] focus:ring-opacity-50"
+              onClick={() => setShowMenu(!showMenu)}
+              aria-label={showMenu ? "Close menu" : "Open menu"}
+              aria-expanded={showMenu}
+            >
+              <img
+                className="w-6 sm:w-7 transition-all duration-300"
+                src={showMenu ? close_icon : menu_icon}
+                alt={showMenu ? "Close menu" : "Open menu"}
+              />
+              <span className="text-base sm:text-lg lg:text-xl text-[#0A0908] font-semibold">
+                {showMenu ? "CLOSE" : "MENU"}
               </span>
-            ) : (
-              <span className="flex items-center gap-3 sm:gap-4 cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                <img
-                  className="w-6 sm:w-7 transition-all duration-300 hover:scale-110"
-                  onClick={() => setShowMenu(true)}
-                  src={menu_icon}
-                  alt="Open menu"
-                />
-                <span className="text-base sm:text-lg lg:text-xl text-white font-semibold">MENU</span>
-              </span>
-            )}
+            </button>
           </div>
 
-          {/* Dropdown Menu */}
-          <ul
+          <div
             className={`${
               showMenu
-                ? "flex flex-col items-start float-right gap-2 mt-3 mx-4 px-6 sm:px-8 py-4 text-lg sm:text-xl font-medium bg-gradient-to-b from-white/95 to-gray-100/95 backdrop-blur-lg shadow-2xl transition-all duration-500 rounded-2xl border border-white/20 w-72 sm:w-80 lg:w-96"
+                ? "flex flex-col items-start float-right gap-2 mt-3 mx-4 px-6 sm:px-8 py-4 text-lg sm:text-xl font-medium bg-[#22333B] backdrop-blur-lg shadow-2xl transition-all duration-500 rounded-2xl border border-[#C6AC8F] w-72 sm:w-80 lg:w-96"
                 : "hidden"
             }`}
+            role="menu"
+            aria-hidden={!showMenu}
           >
-            {['Home', 'About', 'Projects', 'Solutions', 'Contact'].map((item) => (
+            {navItems.map((item) => (
               <NavLink 
-                key={item}
-                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                key={item.name}
+                to={item.path}
                 onClick={() => setShowMenu(false)}
                 className={({ isActive }) => 
                   `w-full px-4 py-3 rounded-lg transition-all duration-300 ${
                     isActive 
-                      ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-white shadow-lg' 
-                      : 'text-gray-800 hover:bg-white/80 hover:text-amber-600'
+                      ? 'bg-[#C6AC8F] text-[#0A0908] shadow-lg' 
+                      : 'text-[#EAE0D5] hover:bg-[#C6AC8F] hover:text-[#0A0908]'
                   }`
                 }
+                role="menuitem"
               >
-                <p className="font-semibold">{item}</p>
+                <p className="font-semibold">{item.name}</p>
               </NavLink>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

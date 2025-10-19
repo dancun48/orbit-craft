@@ -4,37 +4,37 @@ import world from "../assets/images/world.jpg";
 
 const Future = () => {
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-      <div className="w-full">
-        <div className="flex flex-col lg:flex-row justify-between rounded-xl shadow-xl bg-gradient-to-br from-[#8B4513] via-[#A0522D] to-[#D2691E] min-h-[600px] p-4 sm:p-6 lg:p-8 xl:p-10">
-          {/* right Section - Now on left side */}
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 bg-[#EAE0D5]">
+      <div className="w-full max-w-10xl">
+        <div className="flex flex-col lg:flex-row justify-between rounded-xl shadow-lg bg-[#22333B] min-h-[600px] p-4 sm:p-6 lg:p-8 xl:p-10 border border-[#C6AC8F]">
           <div className="flex flex-col items-center justify-center w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-10">
-            <div className="flex-1 text-center lg:text-left w-full items-center pt-20">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl pb-4 sm:pb-6 lg:pb-8 xl:pb-10 font-bold text-white leading-tight">
+            <div className="flex-1 text-center lg:text-left w-full">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl pb-4 sm:pb-6 lg:pb-8 xl:pb-10 font-bold text-[#EAE0D5] leading-tight">
                 Future Vision & Expansion Plans
               </h1>
-              <div className="w-full rounded-2xl overflow-hidden shadow-2xl">
+              <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#C6AC8F]">
                 <img
                   src={house5}
                   alt="Sustainable Construction"
-                  className="w-full h-48 sm:h-56 lg:h-64 xl:h-72 object-cover rounded-xl"
+                  className="w-full h-48 sm:h-56 lg:h-64 xl:h-200 object-cover transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>
           </div>
           
-          {/* left section - Now on right side */}
           <div className="flex flex-col w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-10">
             <div className="w-full">
-              <img
-                src={world}
-                className="w-full h-32 sm:h-40 lg:h-48 xl:h-56 object-cover rounded-xl"
-                alt=""
-              />
+              <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#C6AC8F]">
+                <img
+                  src={world}
+                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-56 object-cover transform hover:scale-105 transition-transform duration-700"
+                  alt="Global Expansion"
+                />
+              </div>
             </div>
-            <div className="w-full mt-4 sm:mt-6 lg:mt-8 xl:mt-10 p-3 sm:p-4 text-black/40 text-justify bg-gray-50 rounded-xl">
-              <p className="text-sm sm:text-base lg:text-lg">
-                Orbit craft's journey began with a strong foundation in design
+            <div className="w-full mt-4 sm:mt-6 lg:mt-8 xl:mt-10 p-4 sm:p-6 lg:p-8 text-[#0A0908] text-justify bg-[#EAE0D5] rounded-xl border border-[#5E503F]">
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                Orbit Craft's journey began with a strong foundation in design
                 consultancy-helping individuals, organizations, and communities
                 turn ideas into spaces that inspire. Along the way, we expanded
                 into small-scale construction projects, where our designs came

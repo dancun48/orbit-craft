@@ -59,63 +59,59 @@ const ProjectsList = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-      <div className="w-full">
-        <div className="flex flex-col rounded-xl shadow-xl bg-gradient-to-br from-[#8B4513] via-[#A0522D] to-[#D2691E]">
-          {/* Header Section */}
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 bg-[#EAE0D5]">
+      <div className="w-full max-w-10xl">
+        <div className="flex flex-col rounded-xl shadow-lg bg-[#22333B] border border-[#C6AC8F]">
           <div className="p-6 lg:p-8 xl:p-12">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mb-4 lg:mb-6">
-              Projects
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#EAE0D5] mb-4">
+              Our Projects Portfolio
             </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl text-amber-100 mb-6 lg:mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-[#C6AC8F] mb-6 lg:mb-8 leading-relaxed">
               Discover our diverse portfolio of innovative construction and design projects across Kenya.
             </p>
-            <hr className="border-amber-200/30 mb-8 lg:mb-12" />
+            <hr className="border-[#5E503F] mb-8" />
           </div>
 
-          {/* Projects List in Rows */}
           <div className="space-y-0">
             {projects.map((project, index) => (
               <div 
                 key={index} 
-                className="group transition-all duration-500 hover:bg-white/5"
+                className="group transition-all duration-500 hover:bg-[#0A0908]"
               >
-                <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6 p-6 lg:p-8 xl:p-10 border-b border-amber-200/20 last:border-b-0">
-                  {/* Project Image */}
+                <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6 p-6 lg:p-8 xl:p-10 border-b border-[#5E503F] last:border-b-0">
                   <div className="w-full lg:w-1/3 xl:w-1/4 mb-4 lg:mb-0">
-                    <div className="relative h-48 lg:h-56 xl:h-64 rounded-xl overflow-hidden shadow-lg">
+                    <div className="relative h-48 lg:h-56 xl:h-64 rounded-xl overflow-hidden shadow-lg border border-[#C6AC8F]">
                       <img 
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#8B4513]/40 to-transparent"></div>
-                      <div className="absolute top-3 left-3 bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+                      <div className="absolute inset-0 bg-[#0A0908]/20"></div>
+                      <div className="absolute top-3 left-3 bg-[#C6AC8F] text-[#0A0908] w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg border border-[#EAE0D5]">
                         {index + 1}
                       </div>
                     </div>
                   </div>
 
-                  {/* Project Content */}
                   <div className="flex-1">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3 lg:mb-4">
-                      <h3 className="text-xl lg:text-2xl xl:text-3xl font-semibold text-white mb-2 lg:mb-0 group-hover:text-amber-200 transition-colors duration-300">
+                      <h3 className="text-xl lg:text-2xl xl:text-2xl font-semibold text-[#EAE0D5] mb-2 lg:mb-0 group-hover:text-[#C6AC8F] transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <span className="text-amber-200 text-sm lg:text-base font-medium bg-amber-500/20 px-3 py-1 rounded-full inline-block lg:inline">
+                      <span className="text-[#0A0908] text-sm lg:text-base font-medium bg-[#C6AC8F] px-3 py-1 rounded-full inline-block lg:inline">
                         Project {index + 1}
                       </span>
                     </div>
                     
-                    <p className="text-base lg:text-lg text-amber-50 mb-6 lg:mb-8 leading-relaxed">
+                    <p className="text-md text-[#C6AC8F]/90 mb-6 lg:mb-8 leading-relaxed">
                       {project.details}
                     </p>
                     
                     <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
-                      <button className="bg-amber-500 hover:bg-amber-600 text-white py-3 lg:py-4 px-6 lg:px-8 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex-1 sm:flex-none text-center">
+                      <button className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 px-3 rounded-full w-20 h-20 text-[0.8rem] font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex-1 sm:flex-none text-center">
                         VISIT GALLERY
                       </button>
-                      <button className="border-2 border-amber-300 hover:bg-amber-300 hover:text-[#8B4513] text-amber-300 py-3 lg:py-4 px-6 lg:px-8 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 flex-1 sm:flex-none text-center">
+                      <button className="border-2 border-[#C6AC8F] hover:bg-[#C6AC8F] hover:text-[#0A0908] text-[#C6AC8F] py-2 px-3 w-20 h-20 rounded-full text-[0.8rem] font-semibold transition-all duration-300 flex-1 sm:flex-none text-center">
                         VIEW DETAILS
                       </button>
                     </div>
@@ -125,9 +121,8 @@ const ProjectsList = () => {
             ))}
           </div>
 
-          {/* Load More Button */}
-          <div className="flex justify-center p-6 lg:p-8 xl:p-12 border-t border-amber-200/30">
-            <button className="bg-amber-500 hover:bg-amber-600 text-white py-4 lg:py-5 px-10 lg:px-16 rounded-full text-lg lg:text-xl font-semibold transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-3xl">
+          <div className="flex justify-center p-6 lg:p-8 xl:p-12 border-t border-[#5E503F]">
+            <button className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 px-4 h-25 w-25 rounded-full text-[0.8rem] font-semibold transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-3xl border-2 border-[#C6AC8F]">
               EXPLORE MORE PROJECTS
             </button>
           </div>

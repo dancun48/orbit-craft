@@ -10,9 +10,9 @@ import Home from './components/Home';
 
 const App = () => {
   return (
-    <div className='bg-[#D8D1C5] min-h-screen'>
+    <div className='bg-[#EAE0D5] min-h-screen'>
       <Navbar/>
-      <div className="pt-10"> {/* Add padding to account for fixed navbar */}
+      <div>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
