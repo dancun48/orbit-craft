@@ -61,9 +61,6 @@ const Navbar = () => {
                 <h1 className="text-lg font-bold text-[#EAE0D5] transition-colors duration-300">
                   ORBIT CRAFT
                 </h1>
-                <p className="text-[0.8rem] text-[#EAE0D5] font-light">
-                  CONSULTING • CONSTRUCTION • REAL ESTATE
-                </p>
               </div>
             </div>
 
