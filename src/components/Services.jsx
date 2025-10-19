@@ -83,7 +83,7 @@ const Services = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 bg-[#EAE0D5]">
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 bg-[#EAE0D5]">
       <div
         id="sectors-section"
         className="flex flex-col rounded-xl shadow-xl bg-[#22333B] w-full max-w-10xl min-h-[600px] relative overflow-hidden border border-[#C6AC8F]"

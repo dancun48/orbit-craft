@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Mission = () => {
   const navigate = useNavigate()
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 bg-[#EAE0D5]">
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 bg-[#EAE0D5]">
       <div className="flex flex-col lg:flex-row rounded-xl shadow-xl bg-[#22333B] w-full max-w-10xl border border-[#C6AC8F]">
         <div className="flex flex-col p-6 lg:p-8 xl:p-12 w-full lg:w-1/2">
           <h4 className="text-xl py-3 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
