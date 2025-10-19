@@ -55,7 +55,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Orbit Craft - Consulting, Construction, Real Estate"
-                className="size-8 sm:size-12 lg:size-12 transition-all duration-300 group-hover:scale-105"
+                className="size-20 sm:size-20 lg:size-20 transition-all duration-300 group-hover:scale-105 rounded-xl"
               />
               <div className="flex flex-col">
                 <h1 className="text-lg font-bold text-[#EAE0D5] transition-colors duration-300">
