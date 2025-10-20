@@ -215,7 +215,7 @@ const Footer = () => {
               &copy; 2025 Orbit Craft. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+            <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mr-8">
               <a
                 href="#"
                 className="text-[#EAE0D5]/60 hover:text-[#C6AC8F] transition-all duration-300 hover:underline"
