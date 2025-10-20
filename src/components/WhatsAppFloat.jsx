@@ -9,8 +9,8 @@ const WhatsAppFloat = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <div className="whatsapp-float relative mb-20">
-    <span className='text-md left-0 mb-10 text-white mr-10'>Chat with us!</span>
+    <div className="whatsapp-float relative md:mb-20 sm:text-sm sm:mb-0">
+    <span className='text-md left-0 mb-10 text-white md:mr-4 lg:mr-4 xl:mr-4 sm:mr-0'>Chat with us!</span>
       <a 
         href={whatsappUrl}
         target="_blank"

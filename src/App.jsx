@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import OurServices from './pages/OurServices';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
       </div>
       <WhatsAppFloat />
       <Footer /> 
+      <ScrollToTop />
     </div>
   )
 }
