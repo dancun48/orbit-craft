@@ -106,7 +106,7 @@ const Services = () => {
           </div>
           
           <div className="flex flex-col lg:flex-row justify-between">
-            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-[#EAE0D5] leading-relaxed sm:leading-loose max-w-4xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl text-[#EAE0D5] leading-relaxed sm:leading-loose max-w-4xl">
               At Orbit Craft, we are committed to shaping spaces that inspire and endure. Our ongoing projects span residential, commercial, and institutional developments—each designed with precision, functionality, and sustainability in mind.
             </p>
           </div>
