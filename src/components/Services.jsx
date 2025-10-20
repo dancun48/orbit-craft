@@ -98,8 +98,8 @@ const Services = () => {
                 Our Focus Areas
               </h1>
             </div>
-            <button onClick={()=>{navigate('/projects'); window.scrollTo(0,0)}} className="text-sm font-semibold border-2 border-[#C6AC8F] text-[#C6AC8F] py-2 px-4 rounded-full w-30 h-30 cursor-pointer hover:bg-[#C6AC8F] hover:text-[#0A0908] transition-all duration-500 transform hover:scale-105 self-start lg:self-auto">
-              VIEW ALL PROJECTS
+            <button onClick={()=>{navigate('/services'); window.scrollTo(0,0)}} className="text-sm font-semibold border-2 border-[#C6AC8F] text-[#C6AC8F] py-2 px-4 rounded-full w-30 h-30 cursor-pointer hover:bg-[#C6AC8F] hover:text-[#0A0908] transition-all duration-500 transform hover:scale-105 self-start lg:self-auto">
+              LEARN MORE
             </button>
           </div>
           <div className="flex flex-col lg:flex-row justify-between">
@@ -145,15 +145,12 @@ const Services = () => {
                   <p className="text-base lg:text-lg text-[#0A0908] mt-4 lg:mt-6 leading-relaxed">
                     {card.description}
                   </p>
-                  <button  onClick={()=>{navigate('/projects'); window.scrollTo(0,0)}} className="text-sm font-semibold border-2 border-[#5E503F] text-[#5E503F] py-4 px-4 md:h-20 md:w-20 sm:w-fit rounded-full cursor-pointer hover:bg-[#5E503F] hover:text-[#EAE0D5] transition-all duration-300 mt-4">
-                    LEARN MORE
-                  </button>
                 </div>
                 <div className="flex items-center justify-center p-4 lg:p-6 flex-1">
                   <img
-                    src={hero_image}
+                    src={card.image}
                     alt={card.title}
-                    className="w-full h-48 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-lg border border-[#5E503F]"
+                    className="w-full sm:hidden md:block h-48 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-lg border border-[#5E503F]"
                   />
                 </div>
               </div>

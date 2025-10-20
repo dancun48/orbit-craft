@@ -7,6 +7,8 @@ import Solution from './pages/Solution';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import OurServices from './pages/OurServices';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App = () => {
   return (
@@ -16,11 +18,13 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/services' element={<OurServices />} />
           <Route path='/projects' element={<Projects />} />
-          <Route path='/solutions' element={<Solution />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/sustainability-goals' element={<Solution />} />
+          <Route path='/contact-us' element={<Contact />} />
         </Routes>
       </div>
+      <WhatsAppFloat />
       <Footer /> 
     </div>
   )

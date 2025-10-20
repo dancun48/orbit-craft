@@ -3,9 +3,10 @@ import hero_2 from '../assets/images/house10.jpg';
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
   return (
-    <section className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pb-3 pt-12 bg-[#EAE0D5] mt-16">
+    <section className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pb-3 pt-17 bg-[#EAE0D5] mt-16">
       <div 
         className="flex flex-col justify-between text-[#0A0908] rounded-xl shadow-2xl bg-cover bg-no-repeat bg-center w-full max-w-10xl min-h-[600px] relative overflow-hidden border border-[#C6AC8F]"
         style={{ backgroundImage: `url(${hero_2})` }}
@@ -27,7 +28,7 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 mt-4 lg:mt-8">
-            <button onClick={()=>{navigate('/contact'); window.scrollTo(0,0)}} className="bg-[#C6AC8F] hover:bg-[#5E503F] text-[#0A0908] hover:text-[#EAE0D5] px-8 py-4 h-40 w-40 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]">
+            <button onClick={()=>{navigate('/contact-us'); window.scrollTo(0,0)}} className="bg-[#C6AC8F] hover:bg-[#5E503F] text-[#0A0908] hover:text-[#EAE0D5] px-8 py-4 h-40 w-40 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]">
               Start Your Project
             </button>
             <button onClick={()=>{navigate('/projects'); window.scrollTo(0,0)}} className="border-2 border-[#5E503F] hover:bg-[#5E503F] hover:text-[#EAE0D5] text-[#5E503F] px-8 py-4 h-40 w-40 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105">

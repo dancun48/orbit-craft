@@ -34,7 +34,7 @@ const Solution = () => {
             <div className="flex flex-col lg:flex-row justify-between items-center p-6 lg:p-8 xl:p-12 gap-6 lg:gap-8">
               <div className="flex-1 text-center lg:text-left">
                 <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-bold text-[#EAE0D5] leading-tight">
-                  Sustainability & Innovation
+                  Sustainability Goals
                 </h1>
                 <p className="text-lg sm:text-xl lg:text-2xl text-[#C6AC8F] mt-4 lg:mt-6 leading-relaxed">
                   Pioneering eco-conscious construction solutions that blend innovation with environmental responsibility for a greener future.

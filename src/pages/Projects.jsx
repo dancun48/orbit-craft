@@ -1,102 +1,134 @@
 import React from "react";
-import OurStory from "../components/OurStory";
-import estate from "../assets/images/estate.jpg";
-import build from "../assets/images/build.jpg";
-import int from "../assets/images/int.jpg";
-import resid from "../assets/images/resid.jpg";
-import prod from "../assets/images/prod.jpg";
-import ProjectsList from '../components/ProjectsList'
+import athi from '../assets/images/athi.png';
+import stjames from '../assets/images/stjames.png'
+import limuru from '../assets/images/limuru.png'
+import kakamega from '../assets/images/kakamega.png'
+import joska from '../assets/images/joska.png';
+import nun from '../assets/images/nun.png';
+import ruiru from '../assets/images/ruiru.png';
+import sda from '../assets/images/sda.png';
+import tanda from '../assets/images/tanda.png';
 
 const Projects = () => {
-  const cards = [
+  const projects = [
     {
-      number: "01",
-      image: resid,
-      title: "Residential & Commercial Building Design",
-      description: "Conceptualization | Schematics | Architectural | Civil & Structural | MEP | Landscapes | Green Building Solutions",
+      image: athi,
+      title: "The Athi Market MUD",
+      details: "Strategically positioned in the heart of Athi Market- Meru, this mixed-use project is designed to blend commerce, technology, and modern living. The front-facing commercial stalls—including a cyber café, eatery, and cosmetics shop—create a vibrant street frontage that supports local business and community interaction.",
     },
     {
-      number: "02",
-      image: int,
-      title: "Interior Design",
-      description: "Space Planning & Optimization | Lighting & Acoustic Design | Furniture Layouts | Interior Themes | Smart Housing Solutions",
+      image: stjames,
+      title: "The St. James Catholic Church",
+      details: "Designed to serve as both a place of worship and a community landmark, St. James Catholic Church in Nyahururu was a thoughtfully planned religious project with a seating capacity of 250 parishioners. The church combines functional layout with timeless architectural expression.",
     },
     {
-      number: "03",
-      image: prod,
-      title: "Product Design",
-      description: "Custom Furniture & Fixtures | Sustainable Material & Modular Products | Branded Property Products",
+      image: limuru,
+      title: "The Limuru Residential",
+      details: "This development brings together the best of private living and rental investment within one property. At its core is a modern 3-bedroom mansionette with a master ensuite, designed to offer comfort, privacy, and elegance for the owner's residence.",     
     },
     {
-      number: "04",
-      image: build,
-      title: "Building Construction & Property Management",
-      description: "Turnkey Construction Solutions | Contract Administration | Time, Cost & Quality Control | Health & Safety Management",
+      image: kakamega,
+      title: "The Kakamega Maisonette",
+      details: "Nestled in the lush surroundings of Kakamega, this elegant 4-bedroom mansion with a master ensuite combines modern comfort with refined living. A dedicated study room adds versatility, providing the ideal space for work, learning, or quiet reflection.",
     },
     {
-      number: "05",
-      image: estate,
-      title: "Real Estate Development Advisory & Agency",
-      description: "Feasibility Studies | Valuation Services | Property Sales & Leasing | Property & Facilities Management | Real Estate Investment Advisory - Land Acquisition & Property Development | Project Finance Advisory",
+      image: joska,
+      title: "The Joska Rentals",
+      details: "Located in the fast-growing Joska area of Machakos County, The Joska Rentals is a mixed residential development designed to meet both lifestyle and investment needs. At the heart of the project is a modern 3-bedroom bungalow with a master ensuite.",
+    },
+    {
+      image: nun,
+      title: "The Nun Residence",
+      details: "Set in the tranquil highlands of Nyahururu, The Nun Residence is a landmark project that embodies comfort, functionality, and elegance. This expansive 7-bedroom all-ensuite residence is thoughtfully designed to offer both privacy and luxury for its occupants.",
+    },
+    {
+      image: ruiru,
+      title: "The Ruiru Home",
+      details: "Currently under approvals with the County Council, this upcoming development in Ruiru is a spacious 5-bedroom maisonette designed for modern family living. The home features all its spaces thoughtfully planned for comfort and privacy.",
+    },
+    {
+      image: sda,
+      title: "The SDA Bahati Church",
+      details: "The SDA Bahati Church is undertaking a major redevelopment to transform its current sanctuary into a larger, modern worship space designed to accommodate a growing congregation. The project focuses on expanding seating capacity and upgrading essential utilities.",
+    },
+    {
+      image: tanda,
+      title: "The Tanda Office",
+      details: "The Tanda Office project is a modern interior office build that redefines the workplace experience through functionality, style, and innovation. Located in Nairobi, this office space was designed to foster collaboration, productivity, and a professional atmosphere.",
     },
   ];
 
   return (
-    <>
-      <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 pb-3 bg-[#EAE0D5] mt-16">
-        <div className="w-full max-w-10xl">
-          <div className="flex flex-col rounded-xl shadow-lg mb-2 bg-[#22333B] min-h-[600px] border border-[#C6AC8F]">
-            <div className="p-6 lg:p-8 xl:p-12">
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center pt-8 lg:pt-12 mb-8 lg:mb-12">
-                <div className="flex-1 mb-6 lg:mb-0">
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#EAE0D5]">
-                    Expertise & Projects
-                  </h1>
-                </div>
-                <div className="flex-1 lg:px-8">
-                  <p className="text-lg sm:text-xl lg:text-2xl text-[#C6AC8F] leading-relaxed">
-                    We bring our innovative touch to every project, proving that nothing is impossible.
-                  </p>
-                </div>
-              </div>
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 pt-33 bg-[#EAE0D5]">
+      <div className="w-full max-w-10xl">
+        <div className="flex flex-col rounded-xl shadow-lg bg-[#22333B] border border-[#C6AC8F]">
+          <div className="p-6 lg:p-8 xl:p-12">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#EAE0D5] mb-4">
+              Our Projects Portfolio
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-[#C6AC8F] mb-6 lg:mb-8 leading-relaxed">
+              Discover our diverse portfolio of innovative construction and design projects across Kenya.
+            </p>
+            <hr className="border-[#5E503F] mb-8" />
+          </div>
 
-              <hr className="border-[#5E503F] mb-8 lg:mb-12" />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 py-6 lg:py-8">
-                {cards.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-[#0A0908] rounded-2xl border border-[#C6AC8F] overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-2xl group"
-                  >
-                    <div className="relative h-48 lg:h-56 xl:h-64 overflow-hidden">
+          <div className="space-y-0">
+            {projects.map((project, index) => (
+              <div 
+                key={index} 
+                className="group transition-all duration-500 hover:bg-[#0A0908]"
+              >
+                <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6 p-6 lg:p-8 xl:p-10 border-b border-[#5E503F] last:border-b-0">
+                  <div className="w-full lg:w-1/3 xl:w-1/4 mb-4 lg:mb-0">
+                    <div className="relative h-48 lg:h-56 xl:h-64 rounded-xl overflow-hidden shadow-lg border border-[#C6AC8F]">
                       <img 
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                        src={item.image} 
-                        alt={item.title} 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
                       />
-                      <div className="absolute inset-0 bg-[#0A0908]/40"></div>
-                      <div className="absolute top-4 left-4 bg-[#C6AC8F] text-[#0A0908] w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center text-lg lg:text-xl font-bold shadow-lg border border-[#EAE0D5]">
-                        {item.number}
+                      <div className="absolute inset-0 bg-[#0A0908]/20"></div>
+                      <div className="absolute top-3 left-3 bg-[#C6AC8F] text-[#0A0908] w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg border border-[#EAE0D5]">
+                        {index + 1}
                       </div>
                     </div>
-                    
-                    <div className="p-4 lg:p-6">
-                      <h3 className="text-xl lg:text-2xl font-semibold text-[#EAE0D5] mb-3 lg:mb-4 leading-tight group-hover:text-[#C6AC8F] transition-colors duration-300">
-                        {item.title}
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3 lg:mb-4">
+                      <h3 className="text-xl lg:text-2xl xl:text-2xl font-semibold text-[#EAE0D5] mb-2 lg:mb-0 group-hover:text-[#C6AC8F] transition-colors duration-300">
+                        {project.title}
                       </h3>
-                      <p className="text-sm lg:text-base text-[#C6AC8F] leading-relaxed">
-                        {item.description}
-                      </p>
+                      <span className="text-[#0A0908] text-sm lg:text-base font-medium bg-[#C6AC8F] px-3 py-1 rounded-full inline-block lg:inline">
+                        Project {index + 1}
+                      </span>
+                    </div>
+                    
+                    <p className="text-md text-[#C6AC8F]/90 mb-6 lg:mb-8 leading-relaxed">
+                      {project.details}
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+                      <button className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 px-3 rounded-full w-20 h-20 text-[0.8rem] font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex-1 sm:flex-none text-center">
+                        VISIT GALLERY
+                      </button>
+                      <button className="border-2 border-[#C6AC8F] hover:bg-[#C6AC8F] hover:text-[#0A0908] text-[#C6AC8F] py-2 px-3 w-20 h-20 rounded-full text-[0.8rem] font-semibold transition-all duration-300 flex-1 sm:flex-none text-center">
+                        VIEW DETAILS
+                      </button>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center p-6 lg:p-8 xl:p-12 border-t border-[#5E503F]">
+            <button className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 px-4 h-25 w-25 rounded-full text-[0.8rem] font-semibold transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-3xl border-2 border-[#C6AC8F]">
+              EXPLORE MORE PROJECTS
+            </button>
           </div>
         </div>
       </div>
-      <ProjectsList />
-    </>
+    </div>
   );
 };
 

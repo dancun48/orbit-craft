@@ -32,9 +32,10 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Sustainability Goals', path: '/sustainability-goals' },
+    { name: 'Contact', path: '/contact-us' }
   ];
 
   return (

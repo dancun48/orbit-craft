@@ -7,6 +7,7 @@ import fb from '../assets/images/fb.png';
 import ig from '../assets/images/ig.png';
 import tt from '../assets/images/tt.png';
 import ld from '../assets/images/ld.png';
+import WhatsAppFloat from '../components/WhatsAppFloat'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
