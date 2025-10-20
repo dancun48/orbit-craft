@@ -81,7 +81,7 @@ const Services = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 bg-[#EAE0D5]">
+    <div className="flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-3 bg-[#EAE0D5]">
       <div
         id="sectors-section"
         className="flex flex-col rounded-xl sm:rounded-2xl shadow-xl bg-[#22333B] w-full max-w-10xl xl:max-w-10xl min-h-[600px] relative overflow-hidden border border-[#C6AC8F]"
@@ -93,7 +93,7 @@ const Services = () => {
               <h4 className="text-base sm:text-lg md:text-xl lg:text-xl py-1 sm:py-2 lg:py-3 text-[#C6AC8F] font-light tracking-wide uppercase">
                 Core Services
               </h4>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl text-[#EAE0D5] font-bold leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl text-[#EAE0D5] font-bold leading-tight">
                 Our Focus Areas
               </h1>
             </div>
