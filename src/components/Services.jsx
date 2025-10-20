@@ -43,7 +43,7 @@ const Services = () => {
         number: "05",
         image: estate,
         title: "Real Estate Development Advisory & Agency",
-        description: "Feasibility Studies | Valuation Services | Property Sales & Leasing | Property & Facilities Management | Real Estate Investment Advisory - Land Acquisition & Property Development | Project Finance Advisory",
+        description: "Feasibility Studies | Valuation Services | Property Sales & Leasing | Property & Facilities Management | Real Estate Investment Advisory | Project Finance Advisory",
       },
     ];
 
@@ -125,7 +125,7 @@ const Services = () => {
             </button>
           </div>
 
-          <div className="relative h-96 lg:h-[400px]">
+          <div className="relative h-100 md:h-96 lg:h-[400px]">
             {cards.map((card, index) => (
               <div
                 key={index}
@@ -137,12 +137,12 @@ const Services = () => {
                     : "translate-x-full opacity-0 z-20"
                 }`}
               >
-                <div className="flex flex-col gap-4 lg:gap-6 p-4 lg:p-6 flex-1">
+                <div className="flex flex-col gap-4 lg:gap-6 sm:p-2 p-4 lg:p-6 flex-1">
                   <div className="flex flex-col gap-3">
-                    <span className="text-xl lg:text-2xl text-[#5E503F] font-bold">{card.number}</span>
-                    <h3 className="text-2xl lg:text-4xl text-[#0A0908] font-bold">{card.title}</h3>
+                    <span className="md:text-xl sm:text-sm lg:text-2xl text-[#5E503F] font-bold">{card.number}</span>
+                    <h3 className="md:text-2xl sm:text-md lg:text-4xl text-[#0A0908] font-bold">{card.title}</h3>
                   </div>
-                  <p className="text-base lg:text-lg text-[#0A0908] mt-4 lg:mt-6 leading-relaxed">
+                  <p className="md:text-base sm:text-[0.8rem] lg:text-lg text-[#0A0908] mt-4 lg:mt-6 leading-relaxed">
                     {card.description}
                   </p>
                 </div>

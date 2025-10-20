@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 pb-3 bg-[#EAE0D5] mt-16">
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-17 pb-3 bg-[#EAE0D5] mt-16">
       <div className="w-full max-w-10xl">
         <div className="flex flex-col lg:flex-row rounded-xl shadow-lg bg-[#22333B] min-h-[600px] border border-[#C6AC8F]">
           <div className="flex flex-col p-6 lg:p-8 xl:p-12 w-full lg:w-1/2">

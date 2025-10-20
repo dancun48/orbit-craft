@@ -53,14 +53,6 @@ const Hero = () => {
             ))}
           </div>
         </div>
-
-        <div className="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-[#5E503F] rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-[#5E503F] rounded-full mt-2"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
