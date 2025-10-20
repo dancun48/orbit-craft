@@ -40,23 +40,24 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-17 pb-3 bg-[#EAE0D5] mt-16">
-      <div className="w-full max-w-10xl">
+    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-17 md:pt-24 pb-3 bg-[#EAE0D5] mt-16">
+      <div className="w-full max-w-7xl xl:max-w-10xl">
         <div className="flex flex-col lg:flex-row rounded-xl shadow-lg bg-[#22333B] min-h-[600px] border border-[#C6AC8F]">
-          <div className="flex flex-col p-6 lg:p-8 xl:p-12 w-full lg:w-1/2">
-            <div className="mb-8 lg:mb-12">
-              <h4 className="text-xl sm:text-2xl lg:text-2xl py-3 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
+          {/* Left Column - Contact Form */}
+          <div className="flex flex-col p-4 sm:p-6 lg:p-8 xl:p-12 w-full lg:w-1/2">
+            <div className="mb-6 lg:mb-8 xl:mb-12">
+              <h4 className="text-lg sm:text-xl lg:text-2xl py-2 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
                 Get In Touch
               </h4>
-              <h1 className="text-4xl text-[#EAE0D5] font-bold leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-[#EAE0D5] font-bold leading-tight">
                 Let's Build Something Amazing Together
               </h1>
             </div>
 
-            <form onSubmit={handleSubmit} className="mb-8 lg:mb-12">
-              <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="mb-6 lg:mb-8 xl:mb-12">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="fullName" className="block text-[#C6AC8F] text-md mb-2">
+                  <label htmlFor="fullName" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
                     Full Name *
                   </label>
                   <input
@@ -66,13 +67,13 @@ const Contact = () => {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 text-sm sm:text-base"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-[#C6AC8F] text-md mb-2">
+                  <label htmlFor="email" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
                     Email Address *
                   </label>
                   <input
@@ -82,13 +83,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 text-sm sm:text-base"
                     placeholder="Enter your email address"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[#C6AC8F] text-md mb-2">
+                  <label htmlFor="message" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
                     Message *
                   </label>
                   <textarea
@@ -97,34 +98,34 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows="5"
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 resize-none"
+                    rows="4"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project or inquiry..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-[40%] bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-1 px-2 rounded-full font-semibold text-sm transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
+                  className="w-full sm:w-[50%] lg:w-[40%] bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 sm:py-3 px-4 rounded-full font-semibold text-sm transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
                 >
                   SEND MESSAGE
                 </button>
               </div>
             </form>
 
-            <div className="bg-[#0A0908] p-6 rounded-2xl border border-[#C6AC8F]">
-              <h3 className="text-xl font-semibold text-[#EAE0D5] mb-3">Stay Updated</h3>
-              <p className="text-[#C6AC8F] mb-4">Subscribe to our newsletter for the latest projects and insights.</p>
-              <form onSubmit={handleSubscription} className="flex gap-2">
+            <div className="bg-[#0A0908] p-4 sm:p-6 rounded-2xl border border-[#C6AC8F]">
+              <h3 className="text-lg sm:text-xl font-semibold text-[#EAE0D5] mb-3">Stay Updated</h3>
+              <p className="text-[#C6AC8F] text-sm sm:text-base mb-4">Subscribe to our newsletter for the latest projects and insights.</p>
+              <form onSubmit={handleSubscription} className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 rounded-lg bg-[#22333B] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5]"
+                  className="flex-1 px-3 sm:px-4 py-2 rounded-lg bg-[#22333B] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] text-sm sm:text-base"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] px-4 py-2 rounded-lg font-semibold transition-all duration-300 border-2 border-[#C6AC8F]"
+                  className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] px-4 py-2 rounded-lg font-semibold transition-all duration-300 border-2 border-[#C6AC8F] text-sm sm:text-base whitespace-nowrap"
                 >
                   Subscribe
                 </button>
@@ -132,8 +133,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 p-6 lg:p-8 xl:p-12">
-            <div className="relative h-48 lg:h-64 mb-8 rounded-2xl overflow-hidden shadow-2xl border border-[#C6AC8F]">
+          {/* Right Column - Contact Info */}
+          <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-12">
+            <div className="relative h-40 sm:h-48 lg:h-56 xl:h-64 mb-6 lg:mb-8 rounded-2xl overflow-hidden shadow-2xl border border-[#C6AC8F]">
               <img
                 src={contactImage}
                 alt="Contact Orbit Craft"
@@ -142,46 +144,46 @@ const Contact = () => {
               <div className="absolute inset-0 bg-[#0A0908]/40"></div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold text-[#EAE0D5] mb-4">Contact Information</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#EAE0D5] mb-3 sm:mb-4">Contact Information</h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1">
-                      <span className="text-[#0A0908] text-sm"><BusinessTwoToneIcon /></span>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                      <BusinessTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
                     </div>
                     <div>
-                      <h4 className="text-[#C6AC8F] font-semibold">Address</h4>
-                      <p className="text-[#EAE0D5]">P.O Box 16023-00100,<br />Nairobi, Kenya.</p>
+                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Address</h4>
+                      <p className="text-[#EAE0D5] text-sm sm:text-base">P.O Box 16023-00100,<br />Nairobi, Kenya.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1">
-                      <span className="text-[#0A0908] text-sm"><PhoneInTalkTwoToneIcon /></span>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                      <PhoneInTalkTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
                     </div>
                     <div>
-                      <h4 className="text-[#C6AC8F] font-semibold">Phone</h4>
-                      <p className="text-[#EAE0D5]">+254 745 119 904</p>
+                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Phone</h4>
+                      <p className="text-[#EAE0D5] text-sm sm:text-base">+254 745 119 904</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1">
-                      <span className="text-[#0A0908] text-sm"><EmailTwoToneIcon /></span>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                      <EmailTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
                     </div>
                     <div>
-                      <h4 className="text-[#C6AC8F] font-semibold">Email</h4>
-                      <p className="text-[#EAE0D5]">hello@orbit-craft.co.ke</p>
+                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Email</h4>
+                      <p className="text-[#EAE0D5] text-sm sm:text-base">hello@orbit-craft.co.ke</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-[#EAE0D5] mb-4">Follow Us</h3>
-                <div className="flex gap-4">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#EAE0D5] mb-3 sm:mb-4">Follow Us</h3>
+                <div className="flex gap-3 sm:gap-4">
                   {[
                     { name: "Facebook", icon: fb, url: "https://www.facebook.com" },
                     { name: "Instagram", icon: ig, url: "https://www.instagram.com" },
@@ -190,20 +192,21 @@ const Contact = () => {
                   ].map((social, index) => (
                     <a
                       key={index}
-                      href={social.url} target="_blank"
-                      className="w-12 h-12 bg-[#C6AC8F] hover:bg-[#EAE0D5] rounded-full flex items-center justify-center text-[#0A0908] text-lg transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-[#C6AC8F] hover:bg-[#EAE0D5] rounded-full flex items-center justify-center text-[#0A0908] transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
                       aria-label={social.name}
                     >
-                    <img src={social.icon} alt="" className="w-7 h-7" />
-                      
+                      <img src={social.icon} alt={social.name} className="w-5 h-5 sm:w-6 sm:h-6" />
                     </a>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-[#EAE0D5] mb-2">Business Hours</h3>
-                <p className="text-[#C6AC8F]">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#EAE0D5] mb-2">Business Hours</h3>
+                <p className="text-[#C6AC8F] text-sm sm:text-base">
                   Monday - Friday: 8:00 AM - 5:00 PM<br />
                   Saturday: 9:00 AM - 1:00 PM<br />
                   Sunday: Closed
@@ -213,6 +216,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <WhatsAppFloat />
     </div>
   );
 };
