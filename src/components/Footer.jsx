@@ -10,6 +10,10 @@ const Footer = () => {
       title: "Company",
       links: ["Home", "About Us", "Projects", "Services", "Sustainability Goals", "Contact Us"],
     },
+    {
+      title: "Connect",
+      links: ["Careers", "Partnerships", "Investors", "News", "Events"],
+    }
   ];
 
   const handleNavigation = (path) => {
@@ -67,117 +71,6 @@ const Footer = () => {
                   </ul>
                 </div>
               ))}
-              <div>
-                <h4 className="text-[#C6AC8F] text-lg font-semibold mb-4 border-b border-[#C6AC8F] pb-2">
-                  Services
-                </h4>
-                <ul className="flex flex-col gap-3">
-                  <li
-                    onClick={() => {navigate("/services"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Construction
-                  </li>
-                  <li
-                    onClick={() => {navigate("/services"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Consulting
-                  </li>
-                  <li
-                    onClick={() => {navigate("/services"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Real Estate
-                  </li>
-                  <li
-                    onClick={() => {navigate("/services"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Project Management
-                  </li>
-                  <li
-                    onClick={() => {navigate("/sustainability-goals"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Sustainability
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[#C6AC8F] text-lg font-semibold mb-4 border-b border-[#C6AC8F] pb-2">
-                  Projects
-                </h4>
-                <ul className="flex flex-col gap-3">
-                  <li
-                    onClick={() => {navigate("/projects"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Residential
-                  </li>
-                  <li
-                    onClick={() => {navigate("/projects"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Commercial
-                  </li>
-                  <li
-                    onClick={() => {navigate("/projects"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Institutional
-                  </li>
-                  <li
-                    onClick={() => {navigate("/projects"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Religious Centers
-                  </li>
-                  <li
-                    onClick={() => {navigate("/projects"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Ongoing Projects
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[#C6AC8F] text-lg font-semibold mb-4 border-b border-[#C6AC8F] pb-2">
-                  Connect
-                </h4>
-                <ul className="flex flex-col gap-3">
-                  <li
-                    onClick={() => {navigate("/"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Careers
-                  </li>
-                  <li
-                    onClick={() => {navigate("/"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Partnerships
-                  </li>
-                  <li
-                    onClick={() => {navigate("/"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Investors
-                  </li>
-                  <li
-                    onClick={() => {navigate("/"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    News
-                  </li>
-                  <li
-                    onClick={() => {navigate("/"); window.scrollTo(0,0)}}
-                    className="text-[#EAE0D5]/80 cursor-pointer hover:text-[#C6AC8F] transition-all duration-300 text-sm hover:pl-2"
-                  >
-                    Events
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
 
