@@ -10,15 +10,16 @@ import Home from './components/Home';
 import OurServices from './pages/OurServices';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
+import OurStory from './components/OurStory';
 
 const App = () => {
   return (
-    <div className='bg-[#EAE0D5] min-h-screen'>
+    <div className='bg-[#EAE0D5] min-h-screen py-10'>
       <Navbar/>
       <div>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/about' element={<OurStory />} />
           <Route path='/services' element={<OurServices />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/sustainability-goals' element={<Solution />} />

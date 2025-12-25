@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
-    font-family: Montserrat;
+    font-family: sans-serif;
     box-sizing: border-box
 }
 
@@ -8,8 +8,8 @@
 
 /* UpwardSlidingCards.module.css */
 .container {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  font-family: sans-serif;
+  background: #EAE0D5;
   color: #fff;
   overflow-x: hidden;
 }
