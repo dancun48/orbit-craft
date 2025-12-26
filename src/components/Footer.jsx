@@ -69,10 +69,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-[#EAE0D5] to-[#D9CBB8] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="max-w-10xl mx-auto">
         {/* Main Footer Content */}
-        <div className="bg-gradient-to-r from-[#D6B68C] to-[#C6AC8F] rounded-2xl shadow-2xl border border-[#B89A75] overflow-hidden">
-          {/* Decorative top border */}
-          <div className="h-1 bg-gradient-to-r from-[#5E503F] via-[#C6AC8F] to-[#5E503F]"></div>
-          
+        <div className="bg-gradient-to-r from-[#D6B68C] to-[#C6AC8F] rounded-3xl sm:rounded-4xl shadow-2xl border border-[#B89A75] overflow-hidden">
           <div className="px-6 lg:px-12 py-10 lg:py-14">
             {/* Top Section - 3 Columns */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 mb-12">
@@ -139,7 +136,7 @@ const Footer = () => {
                               className="group flex items-center gap-2 text-[#5E503F]/70 hover:text-[#5E503F] transition-all duration-300 text-sm hover:pl-2 w-full text-left"
                             >
                               <span className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">›</span>
-                              <span className="group-hover:font-medium transition-all duration-300">
+                              <span className="group-hover:font-medium transition-all duration-300 cursor-pointer">
                                 {link.name}
                               </span>
                             </button>

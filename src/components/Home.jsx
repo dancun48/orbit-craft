@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 import Mission from './Mission'
-import Services from './Services'
+import Focus from './Focus'
 import Customer from './Customer'
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <div>
         <Hero />
         <Mission />
-        <Services />
+        <Focus />
         <Customer />
     </div>
   )

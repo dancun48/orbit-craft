@@ -75,7 +75,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div
-        className={`fixed top-10 md:top-15 w-full max-w-10xl z-50 transition-all duration-500 ${
+        className={`fixed top-10 md:top-15 w-full max-w-9xl z-50 transition-all duration-500 ${
           isScrolled 
             ? "py-3 bg-transparent" 
             : "py-4"

@@ -17,7 +17,10 @@ module.exports = {
       },
       animation: {
         'bounce': 'bounce 2s infinite',
-      }
+      },
+      perspective: {
+        '1000': '1000px',
+      },
     },
   },
   plugins: [],

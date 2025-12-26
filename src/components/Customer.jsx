@@ -31,7 +31,7 @@ const Customer = () => {
 
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 bg-[#EAE0D5]">
-      <div className="bg-[#22333B] rounded-xl shadow-xl px-6 lg:px-12 py-8 lg:py-12 w-full max-w-10xl min-h-[600px] border border-[#C6AC8F]">
+      <div className="bg-[#22333B] rounded-3xl sm:rounded-4xl shadow-xl px-6 lg:px-12 py-8 lg:py-12 w-full max-w-10xl min-h-[600px] border border-[#C6AC8F]">
         <div className="flex flex-col mb-8 lg:mb-12">
           <h4 className="text-xl py-2 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
             Process
