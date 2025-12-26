@@ -141,16 +141,16 @@ const Focus = () => {
     <div className="flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-3 bg-[#EAE0D5]">
       <div
         ref={containerRef}
-        className="flex flex-col rounded-3xl sm:rounded-4xl shadow-xl bg-[#5e503f]/50 w-full max-w-10xl xl:max-w-10xl min-h-[600px] relative overflow-hidden border border-[#C6AC8F]"
+        className="flex flex-col rounded-3xl sm:rounded-4xl shadow-xl bg-[#5e503f]/70 w-full max-w-10xl xl:max-w-10xl min-h-[600px] relative overflow-hidden border border-[#C6AC8F]"
       >
         {/* Header Section */}
         <div className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 relative z-10">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 sm:mb-8 lg:mb-10 xl:mb-12 gap-4 sm:gap-6">
             <div className="flex flex-col">
-              <h4 className="text-base sm:text-lg md:text-xl lg:text-xl py-1 sm:py-2 lg:py-3 text-[#C6AC8F] font-light tracking-wide uppercase">
+              <h4 className="text-base sm:text-lg md:text-xl lg:text-xl py-1 sm:py-2 lg:py-3 font-light tracking-wide uppercase">
                 Core Services
               </h4>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl text-[#EAE0D5] font-bold leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl text-white font-bold leading-tight">
                 Our Focus Areas
               </h1>
             </div>
@@ -163,7 +163,7 @@ const Focus = () => {
           </div>
           
           <div className="flex flex-col lg:flex-row justify-between">
-            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl text-[#EAE0D5] leading-relaxed sm:leading-loose max-w-4xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl text-white/80 leading-relaxed sm:leading-loose max-w-4xl">
               At Orbit Craft, we are committed to shaping spaces that inspire and endure. Our ongoing projects span residential, commercial, and institutional developments—each designed with precision, functionality, and sustainability in mind.
             </p>
           </div>

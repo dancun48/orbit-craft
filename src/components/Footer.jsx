@@ -66,7 +66,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#EAE0D5] to-[#D9CBB8] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <footer className="bg-gradient-to-b from-[#EAE0D5] to-[#D9CBB8] px-4 sm:px-6 lg:px-8 py-12 sm:py-5">
       <div className="max-w-10xl mx-auto">
         {/* Main Footer Content */}
         <div className="bg-gradient-to-r from-[#D6B68C] to-[#C6AC8F] rounded-3xl sm:rounded-4xl shadow-2xl border border-[#B89A75] overflow-hidden">
