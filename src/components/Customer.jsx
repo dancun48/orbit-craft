@@ -1,107 +1,144 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const Customer = () => {
   const customerJourney = [
     {
-      title: "Initial Contact & Consultation",
       number: "01",
+      title: "Initial Contact & Consultation",
       text: "First conversations to understand client needs and vision.",
     },
     {
-      title: "Concept Development",
       number: "02",
+      title: "Concept Development",
       text: "Design ideas, sketches, and preliminary proposals.",
     },
     {
-      title: "Detailed Development",
       number: "03",
+      title: "Detailed Development",
       text: "Detailed drawings, approvals, budgets, and contracts finalized.",
     },
     {
-      title: "Execution & Delivery",
       number: "04",
+      title: "Execution & Delivery",
       text: "Construction, inspection build, or real estate service delivered with precision.",
     },
     {
-      title: "Handover & Aftercare",
       number: "05",
+      title: "Handover & Aftercare",
       text: "Final project handover, ongoing support, and long-term relationship building.",
     },
   ];
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 bg-[#EAE0D5]">
-      <div className="bg-[#22333B] rounded-3xl sm:rounded-4xl shadow-xl px-6 lg:px-12 py-8 lg:py-12 w-full max-w-10xl min-h-[600px] border border-[#C6AC8F]">
-        <div className="flex flex-col mb-8 lg:mb-12">
-          <h4 className="text-xl py-2 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
-            Process
-          </h4>
-          <h1 className="text-3xl sm:text-4xl lg:text-4xl text-[#EAE0D5] font-bold">
-            Customer Journey
-          </h1>
-        </div>
+    <section className="bg-[#EAE0D5] px-4 sm:px-6 lg:px-10 py-5">
+      <div className="max-w-10xl mx-auto bg-[#eae5df] rounded-3xl border border-[#C6AC8F] shadow-xl px-6 sm:px-10 lg:px-16 py-14">
 
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
+        >
+          <p className="uppercase tracking-widest text-sm text-[#5E503F] mb-3">
+            Our Process
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A0908]">
+            Customer Journey
+          </h2>
+        </motion.div>
+
+        {/* Timeline */}
         <div className="relative">
-          <div className="hidden lg:block absolute top-32 left-0 right-0 h-1 bg-[#5E503F] transform -translate-y-1/2 z-0"></div>
-          
-          <div className="flex overflow-x-auto lg:overflow-visible lg:grid lg:grid-cols-5 lg:gap-6 pb-6 lg:pb-0 scrollbar-hide">
-            {customerJourney.map((item, index) => (
-              <div
+          {/* Animated Line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="hidden lg:block absolute top-1/2 left-0 right-0 h-[2px] bg-[#5E503F] origin-left"
+          />
+
+          {/* Steps */}
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10"
+          >
+            {customerJourney.map((step, index) => (
+              <motion.div
                 key={index}
-                className="flex-shrink-0 w-80 lg:w-auto flex flex-col items-center text-center px-4 lg:px-2 relative z-10"
+                variants={item}
+                whileHover={{
+                  y: -8,
+                  transition: { duration: 0.3 },
+                }}
+                className="group bg-[#0A0908] rounded-2xl p-6 border border-[#5E503F] shadow-lg hover:shadow-2xl transition-shadow duration-300"
               >
-                <div className="my-4 lg:my-6 order-3 lg:order-2 relative">
-                  <div className="relative">
-                    <div className="text-xl sm:text-2xl text-[#EAE0D5] font-bold bg-[#5E503F] h-16 w-16 sm:h-20 sm:w-20 rounded-full flex items-center justify-center shadow-lg border-2 border-[#C6AC8F]">
-                      {item.number}
-                    </div>
-                    {index < customerJourney.length - 1 && (
-                      <>
-                        <div className="lg:hidden absolute -right-8 top-1/2 transform -translate-y-1/2 w-6 h-1 bg-[#5E503F]"></div>
-                        <div className="lg:hidden absolute -right-6 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#C6AC8F] rounded-full"></div>
-                      </>
-                    )}
+                {/* Number */}
+                <div className="flex items-center justify-center mb-6">
+                  <div className="h-14 w-14 rounded-full bg-[#5E503F] border border-[#C6AC8F] flex items-center justify-center text-[#EAE0D5] font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                    {step.number}
                   </div>
                 </div>
 
-                <div className="mb-4 lg:mb-6 order-1">
-                  <p className="text-base sm:text-lg font-semibold text-[#EAE0D5] bg-[#0A0908] px-4 py-3 rounded-lg border border-[#5E503F]">
-                    {item.title}
-                  </p>
-                </div>
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-[#EAE0D5] text-center mb-4">
+                  {step.title}
+                </h3>
 
-                <div className="mt-4 lg:mt-6 order-2 lg:order-3 w-full">
-                  <p className="text-sm sm:text-base lg:text-lg text-[#EAE0D5] px-4 py-6 lg:px-6 lg:py-8 shadow-lg bg-[#0A0908] rounded-2xl lg:rounded-3xl border border-[#5E503F] min-h-[120px] lg:min-h-[140px] flex items-center justify-center">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
+                {/* Description */}
+                <p className="text-sm text-[#EAE0D5]/80 text-center leading-relaxed">
+                  {step.text}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <div className="lg:hidden flex justify-center items-center mt-4">
-          <div className="flex space-x-2 mr-3">
-            <div className="w-2 h-2 bg-[#C6AC8F] rounded-full"></div>
-            <div className="w-2 h-2 bg-[#C6AC8F] rounded-full"></div>
-            <div className="w-2 h-2 bg-[#C6AC8F] rounded-full"></div>
-          </div>
-          <span className="text-[#C6AC8F] text-sm">Scroll to explore process →</span>
-        </div>
-
-        <div className="mt-12 lg:mt-16 pt-8 border-t border-[#5E503F]">
-          <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-2xl text-[#C6AC8F] font-bold mb-6">
+        {/* Footer Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-20 pt-10 border-t border-[#5E503F]"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-bold text-[#5E503F] mb-5">
               Bringing Together the Best of Private Living and Investment
             </h3>
-            <p className="text-lg text-[#EAE0D5]/90 leading-relaxed">
-              Our comprehensive approach maximizes land use while creating sustainable income streams, 
-              liberating lifestyle and investment value in every development we undertake.
+            <p className="text-base sm:text-lg text-[#0A0908]/80 leading-relaxed">
+              Our comprehensive approach maximizes land use while creating sustainable income streams,
+              delivering lifestyle and investment value in every development we undertake.
             </p>
           </div>
-        </div>
+        </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 };
 

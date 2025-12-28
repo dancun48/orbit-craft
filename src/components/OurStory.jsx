@@ -1,16 +1,17 @@
 import React from "react";
 import house8 from "../assets/images/house8.jpg";
 import Team from "./Team";
+import Solutions from "../pages/Solution";
 
 const OurStory = () => {
   return (
     <>
-      <section className="px-4 sm:px-6 lg:px-8 py-5 sm:py-16 lg:py-5 bg-[#EAE0D5]">
+      <section className="px-4 sm:px-6 lg:px-8 py-5 sm:py-5 lg:py-5 bg-[#EAE0D5]">
         <div className="max-w-10xl mx-auto">
           <div className="flex lg:flex-row rounded-3xl sm:rounded-4xl shadow-lg bg-[#dac6ae] border border-[#C6AC8F] overflow-hidden h-[700px]">
             {/* Content Section */}
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12 w-full lg:w-1/2">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A0908] mb-4 lg:mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A0908] mb-4 lg:mb-6 pt-10">
                 Meet Orbit Craft Team
               </h2>
               
@@ -78,6 +79,7 @@ const OurStory = () => {
           </div>
         </div>
       </section>
+      <Solutions />
       <Team />
     </>
   );

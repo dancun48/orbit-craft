@@ -57,10 +57,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Company', path: '/company' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Sustainability Goals', path: '/sustainability-goals' },
     { name: 'Get In Touch', path: '/contact-us' }
   ];
 
@@ -131,7 +130,7 @@ const Navbar = () => {
             
             {/* Menu panel - slides in from right */}
             <div
-              className={`absolute top-0 right-0 h-full w-[350px] bg-[#e9ded4] shadow-2xl transition-transform duration-500 ease-in-out transform ${
+              className={`absolute top-35 right-0 h-[87vh] w-[400px] bg-[#dac6ae] shadow-2xl transition-transform duration-500 ease-in-out transform rounded-lg ${
                 showMenu 
                   ? "translate-x-0" 
                   : "translate-x-full"
@@ -167,7 +166,7 @@ const Navbar = () => {
 
                 {/* Social media links */}
                 <div className="mt-auto pt-8 border-t border-[#C6AC8F]/30">
-                  <h3 className="text-[#EAE0D5] font-semibold mb-6 text-center text-md">
+                  <h3 className="text-black font-semibold mb-6 text-center text-sm">
                     Connect With Us
                   </h3>
                   <div className="flex justify-center gap-4 sm:gap-6">
@@ -177,7 +176,7 @@ const Navbar = () => {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#EAE0D5] hover:text-[#C6AC8F] transform hover:scale-110 transition-all duration-300"
+                        className="text-white hover:text-[#C6AC8F] transform hover:scale-110 transition-all duration-300"
                         style={{ 
                           transitionDelay: showMenu ? `${index * 75 + 450}ms` : '0ms' 
                         }}
@@ -186,10 +185,12 @@ const Navbar = () => {
                         <span className="text-2xl sm:text-xl">
                           {social.icon}
                         </span>
+                        
                       </a>
                     ))}
+                    <span className="mx-3"></span>
                   </div>
-                  <p className="text-[#EAE0D5]/70 text-center mt-6 text-sm">
+                  <p className="text-black text-center mt-6 text-xs">
                     Follow us for updates and insights
                   </p>
                 </div>
