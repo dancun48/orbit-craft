@@ -125,7 +125,7 @@ const Solution = () => {
             </video>
             
             {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-black/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/10"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
             
             {/* Animated particles */}

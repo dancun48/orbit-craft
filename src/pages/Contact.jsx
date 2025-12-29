@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import contactImage from "../assets/images/house11.jpg";
-import BusinessTwoToneIcon from '@mui/icons-material/BusinessTwoTone';
-import PhoneInTalkTwoToneIcon from '@mui/icons-material/PhoneInTalkTwoTone';
-import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
-import fb from '../assets/images/fb.png';
-import ig from '../assets/images/ig.png';
-import tt from '../assets/images/tt.png';
-import ld from '../assets/images/ld.png';
-import WhatsAppFloat from '../components/WhatsAppFloat'
+import { motion } from "framer-motion";
+
+import contact from "../assets/images/contact.jpg";
+import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
+import PhoneInTalkTwoToneIcon from "@mui/icons-material/PhoneInTalkTwoTone";
+import EmailTwoToneIcon from "@mui/icons-material/EmailTwoTone";
+
+import fb from "../assets/images/fb.png";
+import ig from "../assets/images/ig.png";
+import tt from "../assets/images/tt.png";
+import ld from "../assets/images/ld.png";
+
+import WhatsAppFloat from "../components/WhatsAppFloat";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.12 } }
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,206 +29,158 @@ const Contact = () => {
     message: ""
   });
 
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    setFormData((p) => ({ ...p, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you soon.");
+    alert("Thank you for your message. We'll get back to you shortly.");
     setFormData({ fullName: "", email: "", message: "" });
   };
 
-  const handleSubscription = (e) => {
-    e.preventDefault();
-    setIsSubscribed(true);
-    alert("Thank you for subscribing to our newsletter!");
-  };
-
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-17 pb-3 bg-[#EAE0D5] mt-16">
-      <div className="w-full max-w-10xl xl:max-w-10xl">
-        <div className="flex flex-col lg:flex-row rounded-xl shadow-lg bg-[#22333B] min-h-[600px] border border-[#C6AC8F]">
-          {/* Left Column - Contact Form */}
-          <div className="flex flex-col p-4 sm:p-6 lg:p-8 xl:p-12 w-full lg:w-1/2">
-            <div className="mb-6 lg:mb-8 xl:mb-12">
-              <h4 className="text-lg sm:text-xl lg:text-2xl py-2 lg:py-4 text-[#C6AC8F] font-light tracking-wide uppercase">
+    <div className="px-4 lg:px-8 py-5">
+      {/* CONSTRAINED BACKGROUND IMAGE */}
+      <div
+        className="relative max-w-10xl mx-auto bg-cover bg-center rounded-3xl overflow-hidden"
+        style={{ backgroundImage: `url(${contact})` }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* CONTENT */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative px-6 sm:px-10 lg:px-16 py-24"
+        >
+          <motion.div
+            variants={stagger}
+            className="grid lg:grid-cols-2 gap-16 items-start pt-5"
+          >
+            {/* LEFT – FORM */}
+            <motion.div variants={stagger}>
+              <motion.h4
+                variants={fadeUp}
+                className="text-[#C6AC8F] uppercase tracking-[0.25em] text-sm"
+              >
                 Get In Touch
-              </h4>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-[#EAE0D5] font-bold leading-tight">
-                Let's Build Something Amazing Together
-              </h1>
-            </div>
+              </motion.h4>
 
-            <form onSubmit={handleSubmit} className="mb-6 lg:mb-8 xl:mb-12">
-              <div className="space-y-4 sm:space-y-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
+              <motion.h1
+                variants={fadeUp}
+                className="text-3xl lg:text-4xl font-semibold text-[#EAE0D5] mt-4 mb-10 max-w-xl"
+              >
+                Let’s create something thoughtful, functional, and lasting.
+              </motion.h1>
+
+              <motion.form
+                onSubmit={handleSubmit}
+                variants={stagger}
+                className="space-y-6 max-w-xl"
+              >
+                {["fullName", "email"].map((field) => (
+                  <motion.input
+                    key={field}
+                    variants={fadeUp}
+                    type={field === "email" ? "email" : "text"}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    placeholder={field === "email" ? "Email address" : "Full name"}
                     required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 text-sm sm:text-base"
-                    placeholder="Enter your full name"
+                    className="w-full bg-white/5 backdrop-blur-md border border-white/25 px-4 py-3 rounded-xl text-[#EAE0D5] placeholder-white/50 focus:outline-none focus:border-[#C6AC8F] transition"
                   />
-                </div>
+                ))}
 
-                <div>
-                  <label htmlFor="email" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 text-sm sm:text-base"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-[#C6AC8F] text-sm sm:text-md mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows="4"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-[#0A0908] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] transition-all duration-300 resize-none text-sm sm:text-base"
-                    placeholder="Tell us about your project or inquiry..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full sm:w-[50%] lg:w-[40%] bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] py-2 sm:py-3 px-4 rounded-full font-semibold text-sm transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
-                >
-                  SEND MESSAGE
-                </button>
-              </div>
-            </form>
-
-            <div className="bg-[#0A0908] p-4 sm:p-6 rounded-2xl border border-[#C6AC8F]">
-              <h3 className="text-lg sm:text-xl font-semibold text-[#EAE0D5] mb-3">Stay Updated</h3>
-              <p className="text-[#C6AC8F] text-sm sm:text-base mb-4">Subscribe to our newsletter for the latest projects and insights.</p>
-              <form onSubmit={handleSubscription} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-3 sm:px-4 py-2 rounded-lg bg-[#22333B] border border-[#C6AC8F] text-[#EAE0D5] placeholder-[#5E503F] focus:outline-none focus:border-[#EAE0D5] text-sm sm:text-base"
+                <motion.textarea
+                  variants={fadeUp}
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your project..."
                   required
+                  className="w-full bg-white/5 backdrop-blur-md border border-white/25 px-4 py-3 rounded-xl text-[#EAE0D5] placeholder-white/50 focus:outline-none focus:border-[#C6AC8F] transition resize-none"
                 />
-                <button
-                  type="submit"
-                  className="bg-[#C6AC8F] hover:bg-[#EAE0D5] text-[#0A0908] px-4 py-2 rounded-lg font-semibold transition-all duration-300 border-2 border-[#C6AC8F] text-sm sm:text-base whitespace-nowrap"
+
+                <motion.button
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-[#C6AC8F] text-[#EAE0D5] font-medium tracking-wide hover:bg-[#C6AC8F]/10 transition"
                 >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
+                  Send Message
+                </motion.button>
+              </motion.form>
+            </motion.div>
 
-          {/* Right Column - Contact Info */}
-          <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-12">
-            <div className="relative h-40 sm:h-48 lg:h-56 xl:h-64 mb-6 lg:mb-8 rounded-2xl overflow-hidden shadow-2xl border border-[#C6AC8F]">
-              <img
-                src={contactImage}
-                alt="Contact Orbit Craft"
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-[#0A0908]/40"></div>
-            </div>
+            {/* RIGHT – INFO */}
+            <motion.div variants={stagger} className="space-y-12">
+              <motion.h3
+                variants={fadeUp}
+                className="text-2xl font-semibold text-[#EAE0D5]"
+              >
+                Contact Information
+              </motion.h3>
 
-            <div className="space-y-4 sm:space-y-6">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#EAE0D5] mb-3 sm:mb-4">Contact Information</h3>
-                
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                      <BusinessTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: <BusinessTwoToneIcon />,
+                    title: "Address",
+                    text: "P.O Box 16023-00100, Nairobi, Kenya"
+                  },
+                  {
+                    icon: <PhoneInTalkTwoToneIcon />,
+                    title: "Phone",
+                    text: "+254 745 119 904"
+                  },
+                  {
+                    icon: <EmailTwoToneIcon />,
+                    title: "Email",
+                    text: "hello@orbit-craft.co.ke"
+                  }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="w-10 h-10 rounded-full border border-[#C6AC8F] flex items-center justify-center text-[#C6AC8F]">
+                      {item.icon}
                     </div>
                     <div>
-                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Address</h4>
-                      <p className="text-[#EAE0D5] text-sm sm:text-base">P.O Box 16023-00100,<br />Nairobi, Kenya.</p>
+                      <p className="text-[#C6AC8F] text-sm uppercase tracking-wide">
+                        {item.title}
+                      </p>
+                      <p className="text-[#EAE0D5]">{item.text}</p>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                      <PhoneInTalkTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Phone</h4>
-                      <p className="text-[#EAE0D5] text-sm sm:text-base">+254 745 119 904</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C6AC8F] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                      <EmailTwoToneIcon className="text-[#0A0908] text-lg sm:text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="text-[#C6AC8F] font-semibold text-sm sm:text-base">Email</h4>
-                      <p className="text-[#EAE0D5] text-sm sm:text-base">hello@orbit-craft.co.ke</p>
-                    </div>
-                  </div>
-                </div>
+                  </motion.div>
+                ))}
               </div>
 
-              <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#EAE0D5] mb-3 sm:mb-4">Follow Us</h3>
-                <div className="flex gap-3 sm:gap-4">
-                  {[
-                    { name: "Facebook", icon: fb, url: "https://www.facebook.com" },
-                    { name: "Instagram", icon: ig, url: "https://www.instagram.com" },
-                    { name: "LinkedIn", icon: ld, url: "https://www.linkedin.com" },
-                    { name: "TikTok", icon: tt, url: "https://www.tiktok.com" }
-                  ].map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-[#C6AC8F] hover:bg-[#EAE0D5] rounded-full flex items-center justify-center text-[#0A0908] transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border-2 border-[#C6AC8F]"
-                      aria-label={social.name}
-                    >
-                      <img src={social.icon} alt={social.name} className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-lg sm:text-xl font-semibold text-[#EAE0D5] mb-2">Business Hours</h3>
-                <p className="text-[#C6AC8F] text-sm sm:text-base">
-                  Monday - Friday: 8:00 AM - 5:00 PM<br />
-                  Saturday: 9:00 AM - 1:00 PM<br />
-                  Sunday: Closed
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+              {/* SOCIALS */}
+              <motion.div variants={fadeUp} className="flex gap-5 pt-4">
+                {[fb, ig, ld, tt].map((icon, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ scale: 1.15 }}
+                    className="w-12 h-12 rounded-full border border-white/30 backdrop-blur-md flex items-center justify-center hover:border-[#C6AC8F] transition"
+                    href="#"
+                  >
+                    <img src={icon} alt="" className="w-6 h-6" />
+                  </motion.a>
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
+
       <WhatsAppFloat />
     </div>
   );
