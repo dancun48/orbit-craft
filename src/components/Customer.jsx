@@ -60,10 +60,10 @@ const Customer = () => {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="uppercase tracking-widest text-sm text-[#5E503F] mb-3">
+          <p className="mb-4 inline-block text-sm font-medium tracking-widest uppercase text-[#5A503C] border-b-2 border-[#C6AC8F] pb-2">
             Our Process
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A0908]">
+          <h2 className="text-3xl sm:text-4xl font-thin text-[#0A0908]">
             Customer Journey
           </h2>
         </motion.div>
@@ -127,10 +127,10 @@ const Customer = () => {
           className="mt-20 pt-10 border-t border-[#5E503F]"
         >
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-[#5E503F] mb-5">
+            <h3 className="text-xl font-bold text-[#5E503F] mb-4">
               Bringing Together the Best of Private Living and Investment
             </h3>
-            <p className="text-base sm:text-lg text-[#0A0908]/80 leading-relaxed">
+            <p className="text-base text-[#0A0908]/50 leading-relaxed">
               Our comprehensive approach maximizes land use while creating sustainable income streams,
               delivering lifestyle and investment value in every development we undertake.
             </p>

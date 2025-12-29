@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaTwitter, FaEnvelope, FaCrown } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaEnvelope, FaCrown, FaBriefcase, FaUserTie } from "react-icons/fa";
 import arnold from "../assets/images/arnold.jpg";
 import jira from "../assets/images/jira.jpg";
 import bantu from "../assets/images/bantu.jpg";
@@ -13,28 +13,32 @@ const Team = () => {
       image: arnold,
       title: "Director - Corporate Affairs & Strategy",
       expertise: "Strategic Planning & Business Development",
-      years: "15+ years"
+      years: "15+ years",
+      icon: <FaBriefcase className="text-[#5E503F]" />
     },
     {
       name: "Bantu Mwaura",
       image: bantu,
       title: "Director - Real Estate & Property Development",
       expertise: "Property Development & Market Analysis",
-      years: "12+ years"
+      years: "12+ years",
+      icon: <FaUserTie className="text-[#5E503F]" />
     },
     {
       name: "Eugene Jack",
       image: okello,
       title: "Director - Design & Innovation",
       expertise: "Architecture & Sustainable Design",
-      years: "10+ years"
+      years: "10+ years",
+      icon: <FaCrown className="text-[#5E503F]" />
     },
     {
       name: "Christopher Jira",
       image: jira,
       title: "Director - Construction & Operations",
       expertise: "Project Management & Engineering",
-      years: "18+ years"
+      years: "18+ years",
+      icon: <FaBriefcase className="text-[#5E503F]" />
     },
   ];
 
@@ -71,63 +75,108 @@ const Team = () => {
       transition: {
         type: "spring",
         stiffness: 100,
-        damping: 15
+        damping: 15,
+        duration: 0.6
       }
     },
     hover: {
-      y: -6,
-      scale: 1.02,
-      boxShadow: "0 15px 30px -10px rgba(10, 9, 8, 0.15)",
+      y: -8,
+      scale: 1.03,
+      boxShadow: "0 20px 40px -15px rgba(10, 9, 8, 0.2)",
       transition: {
         type: "spring",
-        stiffness: 400,
-        damping: 25
+        stiffness: 300,
+        damping: 20
       }
     }
   };
 
   return (
-    <div className="relative flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-5">
-      {/* Main Container */}
-      <div className="relative w-full max-w-10xl h-[calc(auto-2rem)]">
-        <div className="h-full rounded-3xl sm:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-[#eae5df] backdrop-blur-sm shadow-xl">
-          <div className="h-full p-5 lg:p-7 flex flex-col">
-            
+    <section className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gradient-to-b from-[#EAE0D5] to-[#eae5df] overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          animate={{ 
+            rotate: 360,
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+            scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gradient-to-br from-[#C6AC8F]/5 to-transparent border border-[#C6AC8F]/10 blur-xl"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, -30, 0],
+            x: [0, 20, 0]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-gradient-to-tr from-[#5E503F]/5 to-transparent blur-lg"
+        />
+      </div>
+
+      {/* Main Container with max-w-10xl and h-[700px] */}
+      <div className="relative max-w-10xl mx-auto">
+        <div className="h-auto rounded-xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm shadow-xl">
+          <div className="h-full p-6 lg:p-8 flex flex-col">
             {/* Header Section */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-3 lg:mb-4"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-8 lg:mb-12 flex-shrink-0"
             >
               <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "70px" }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="h-[2px] bg-gradient-to-r from-[#C6AC8F] via-[#0A0908] to-[#C6AC8F] mx-auto mb-3 rounded-full"
-              />
-              
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A0908] mb-1">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5E503F] via-[#0A0908] to-[#5E503F]">
-                  Leadership Team
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="inline-flex items-center justify-center gap-4 mb-4"
+              >
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#C6AC8F] to-transparent"></div>
+                <span className="text-sm font-semibold tracking-widest uppercase text-[#5A503C]">
+                  Our Leadership
                 </span>
-              </h1>
-              
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl mx-auto">
-                Visionary leaders driving innovation and excellence
-              </p>
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#C6AC8F] to-transparent"></div>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-thin text-[#0A0908] mb-3"
+              >
+                <span className="bg-gradient-to-r from-[#5E503F] via-[#0A0908] to-[#5E503F] bg-clip-text text-transparent">
+                  Visionary Leadership
+                </span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-base text-gray-600 max-w-2xl mx-auto"
+              >
+                Driving innovation and excellence with decades of combined expertise
+              </motion.p>
             </motion.div>
 
-            {/* Cards Grid - Fits within container */}
-            <div className="flex-1 min-h-0">
+            {/* Team Cards Grid - Scrollable if needed */}
+            <div className="flex-1 overflow-hidden">
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 h-auto"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 h-full items-center"
               >
                 {team.map((person, index) => (
                   <motion.div
@@ -137,71 +186,96 @@ const Team = () => {
                     className="group relative h-full"
                   >
                     {/* Card Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/10 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-500 opacity-0 group-hover:opacity-30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/20 via-[#5E503F]/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Main Card */}
-                    <div className="relative bg-[#C6AC8F] p-4 rounded-2xl border border-[#C6AC8F]/20 group-hover:border-[#C6AC8F]/40 transition-all duration-500 overflow-hidden h-auto flex flex-col shadow-sm">
+                    <div className="relative bg-gradient-to-b from-white to-[#FAF7F2] p-5 rounded-xl border border-[#C6AC8F]/30 group-hover:border-[#C6AC8F]/60 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl h-full flex flex-col">
                       {/* Animated border effect */}
-                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#C6AC8F]/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                                            
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#C6AC8F]/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                      
+                      {/* Experience Badge */}
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="absolute top-3 right-3 bg-gradient-to-r from-[#C6AC8F] to-[#5E503F] text-white text-xs font-bold px-2 py-1 rounded-full shadow-md z-10"
+                      >
+                        {person.years}
+                      </motion.div>
+
                       {/* Image Container */}
-                      <div className="relative mb-3 flex-shrink-0">
-                        <motion.div
-                          whileHover={{ scale: 1.04 }}
-                          className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-2 border-[#C6AC8F]/30 group-hover:border-[#5E503F] transition-all duration-500"
-                        >
-                          <img
-                            className="w-full h-full object-cover"
-                            src={person.image}
-                            alt={person.name}
+                      <div className="relative mb-4 flex-shrink-0">
+                        <div className="relative w-24 h-24 mx-auto">
+                          {/* Outer decorative ring */}
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 border border-dashed border-[#C6AC8F]/20 rounded-full"
                           />
-                          {/* Subtle overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
-                        </motion.div>
-                        
-                        {/* Decorative ring */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[#C6AC8F]/10"></div>
+                          
+                          {/* Profile image with gradient border */}
+                          <div className="relative w-full h-full rounded-full overflow-hidden border-3 border-transparent bg-gradient-to-br from-[#C6AC8F] via-[#5E503F] to-[#0A0908] p-0.5">
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              className="w-full h-full rounded-full overflow-hidden"
+                            >
+                              <img
+                                className="w-full h-full object-cover"
+                                src={person.image}
+                                alt={person.name}
+                                loading="lazy"
+                              />
+                              {/* Subtle overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </motion.div>
+                          </div>
+                          
+                          {/* Icon badge */}
+                          <motion.div
+                            whileHover={{ scale: 1.2, rotate: 360 }}
+                            transition={{ rotate: { duration: 0.6 } }}
+                            className="absolute -bottom-1 right-0 bg-white border border-[#C6AC8F] rounded-full p-1.5 shadow-md"
+                          >
+                            {person.icon}
+                          </motion.div>
                         </div>
                       </div>
                       
                       {/* Content */}
-                      <div className="flex-1 flex flex-col text-center space-y-1.5">
-                        <div className="flex items-center justify-center gap-1.5">
-                          <FaCrown className="text-[#5E503F] opacity-80 text-xs" />
+                      <div className="flex-1 flex flex-col text-center space-y-3">
+                        <div className="space-y-2">
                           <motion.h3
                             whileHover={{ x: 2 }}
-                            className="text-base sm:text-lg font-bold text-[#0A0908] group-hover:text-[#5E503F] transition-colors duration-300 line-clamp-1"
+                            className="text-lg lg:text-xl font-bold text-[#0A0908] group-hover:text-[#5E503F] transition-colors duration-300 line-clamp-1"
                           >
                             {person.name}
                           </motion.h3>
+                          
+                          <motion.p
+                            whileHover={{ scale: 1.02 }}
+                            className="text-[#5E503F] font-semibold text-sm line-clamp-2"
+                          >
+                            {person.title}
+                          </motion.p>
+                          
+                          <p className="text-gray-600 text-xs lg:text-sm leading-relaxed line-clamp-3">
+                            {person.expertise}
+                          </p>
                         </div>
-                        
-                        <motion.p
-                          whileHover={{ scale: 1.02 }}
-                          className="text-white/60 font-medium text-xs sm:text-sm line-clamp-2"
-                        >
-                          {person.title}
-                        </motion.p>
-                        
-                        <p className="text-gray-600 text-xs flex-1 line-clamp-2">
-                          {person.expertise}
-                        </p>
-                        
+
                         {/* Social Links */}
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
-                          className="flex justify-center gap-1.5 pt-2 mt-1 border-t border-[#C6AC8F]/10"
+                          transition={{ duration: 0.4, delay: 0.1 * index }}
+                          className="flex justify-center gap-2 pt-3 mt-auto border-t border-[#C6AC8F]/20"
                         >
                           {[FaLinkedin, FaTwitter, FaEnvelope].map((Icon, idx) => (
                             <motion.a
                               key={idx}
-                              whileHover={{ scale: 1.1, y: -1 }}
-                              whileTap={{ scale: 0.9 }}
+                              whileHover={{ scale: 1.15, y: -3 }}
+                              whileTap={{ scale: 0.95 }}
                               href="#"
-                              className="w-6 h-6 rounded-full bg-white border border-[#C6AC8F]/20 flex items-center justify-center text-[#5E503F] hover:text-white hover:bg-[#5E503F] hover:border-[#5E503F] transition-all duration-300 shadow-sm"
+                              className="w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-50 border border-[#C6AC8F]/30 flex items-center justify-center text-[#5E503F] hover:text-white hover:bg-gradient-to-br hover:from-[#5E503F] hover:to-[#0A0908] hover:border-transparent transition-all duration-300 shadow-md hover:shadow-lg"
                               aria-label={`Connect with ${person.name}`}
                             >
                               <Icon className="text-xs" />
@@ -215,36 +289,49 @@ const Team = () => {
               </motion.div>
             </div>
 
-            {/* Footer CTA */}
+            {/* Footer CTA - Inside the container */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center mt-3 pt-3 border-t border-[#C6AC8F]/10"
+              className="text-center mt-6 pt-4 border-t border-[#C6AC8F]/20 flex-shrink-0"
             >
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Subtle floating elements */}
+      {/* Floating Decorative Elements */}
       <motion.div
-        animate={{ y: [0, -5, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-3 left-3 hidden lg:block"
+        animate={{ 
+          y: [0, -15, 0],
+          rotate: [0, 360]
+        }}
+        transition={{ 
+          y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+          rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+        }}
+        className="absolute top-8 left-8 hidden lg:block"
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-[#5E503F] opacity-20"></div>
+        <div className="w-3 h-3 rounded-full bg-[#C6AC8F]/20 border border-[#C6AC8F]/30"></div>
       </motion.div>
       
       <motion.div
-        animate={{ y: [0, 5, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-3 right-3 hidden lg:block"
+        animate={{ 
+          y: [0, 15, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ 
+          duration: 5, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+        className="absolute bottom-8 right-8 hidden lg:block"
       >
-        <div className="w-2 h-2 rounded-full border border-[#5E503F] opacity-10"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#5E503F] to-[#C6AC8F] opacity-30"></div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

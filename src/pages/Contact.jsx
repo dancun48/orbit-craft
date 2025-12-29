@@ -44,7 +44,7 @@ const Contact = () => {
     <div className="px-4 lg:px-8 py-5">
       {/* CONSTRAINED BACKGROUND IMAGE */}
       <div
-        className="relative max-w-10xl mx-auto bg-cover bg-center rounded-3xl overflow-hidden"
+        className="relative max-w-10xl mx-auto bg-cover bg-center rounded-3xl sm:rounded-4xl overflow-hidden"
         style={{ backgroundImage: `url(${contact})` }}
       >
         {/* Overlay */}
@@ -73,9 +73,9 @@ const Contact = () => {
 
               <motion.h1
                 variants={fadeUp}
-                className="text-3xl lg:text-4xl font-semibold text-[#EAE0D5] mt-4 mb-10 max-w-xl"
+                className="text-3xl lg:text-4xl font-thin text-[#EAE0D5] mt-4 mb-10 max-w-xl"
               >
-                Let’s create something thoughtful, functional, and lasting.
+                Let’s create something <span className="text-[#C6AC8F]">thoughtful</span>, functional, and <span className="text-[#C6AC8F]">lasting</span>.
               </motion.h1>
 
               <motion.form

@@ -27,12 +27,15 @@ import success from "../assets/images/success.png";
 import satisfaction from "../assets/images/satisfaction.png";
 import experience from "../assets/images/experience.png";
 import coverage from "../assets/images/coverage.png";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const controls = useAnimation();
   const [activeCard, setActiveCard] = React.useState(null);
+
+  const navigate = useNavigate();
 
   const cards = [
     {
@@ -158,7 +161,7 @@ const Services = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#eae5df] overflow-hidden py-16 lg:py-20"
+      className="mx-6 lg:mx-8 rounded-3xl lg:rounded-4xl relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#C6AC8F]/90 overflow-hidden py-5"
     >
       {/* Background pattern overlay */}
       <div className="absolute inset-0 opacity-5">
@@ -170,32 +173,15 @@ const Services = () => {
 
       {/* Main container with max-w-10xl and centered content */}
       <div className="relative w-full max-w-10xl mx-auto">
-        {/* Decorative top border */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="h-1 bg-gradient-to-r from-[#5E503F] via-[#C6AC8F] to-[#5E503F] rounded-full mb-10 lg:mb-12"
-        />
-
         {/* Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 lg:mb-16 px-4"
+          className="text-center mb-12 lg:mb-16 px-4 mt-16"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", delay: 0.3 }}
-            className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white border border-[#5E503F]/20 mb-6 shadow-sm"
-          >
-            <ChatBubbleLeftRightIcon className="w-8 h-8 lg:w-10 lg:h-10 text-[#5E503F]" />
-          </motion.div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A0908] mb-4 lg:mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5E503F] via-[#C6AC8F] to-[#5E503F]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-thin text-[#0A0908] mb-4 lg:mb-6">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5E503F] via-[#0A0908]/70 to-[#5E503F]">
               Services
             </span>
           </h1>
@@ -207,19 +193,19 @@ const Services = () => {
             className="h-1 bg-gradient-to-r from-[#5E503F] via-[#C6AC8F] to-[#5E503F] mx-auto rounded-full mb-6 lg:mb-8"
           />
 
-          <p className="text-lg lg:text-xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl text-gray-500 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive suite of professional services designed to bring your construction and design visions to life.
           </p>
         </motion.div>
 
         {/* Main content container with subtle background */}
-        <div className="bg-white/50 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-[#5E503F]/20 shadow-lg p-6 lg:p-8 mb-12 lg:mb-16">
+        <div className="bg-white/50 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-[#5E503F]/20 shadow-lg p-6 lg:p-8 mb-10">
           {/* 3×2 Grid Layout for Services */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 bg-[#dac6ae]"
           >
             {cards.map((item, index) => (
               <ServiceCard 
@@ -233,33 +219,6 @@ const Services = () => {
               />
             ))}
           </motion.div>
-
-          {/* Category Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="mt-10 lg:mt-12 pt-8 border-t border-[#5E503F]/10"
-          >
-            <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
-              {[
-                { label: "Design Services", color: "#5E503F", count: 3, icon: BuildingLibraryIcon },
-                { label: "Creative Solutions", color: "#C6AC8F", count: 1, icon: WrenchScrewdriverIcon },
-                { label: "Construction", color: "#5E503F", count: 1, icon: BuildingStorefrontIcon },
-                { label: "Advisory", color: "#C6AC8F", count: 1, icon: LightBulbIcon },
-              ].map((category, idx) => {
-                const Icon = category.icon;
-                return (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 lg:px-5 py-2.5 lg:py-3 rounded-full border border-[#5E503F]/20 shadow-sm">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: category.color }}></div>
-                    <Icon className="w-4 h-4 text-[#5E503F]" />
-                    <span className="text-sm lg:text-base font-medium text-[#0A0908]">{category.label}</span>
-                    <span className="text-xs lg:text-sm text-gray-500">({category.count})</span>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
         </div>
 
         {/* Stats Section */}
@@ -267,7 +226,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mb-12 lg:mb-16"
+          className="mb-10"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
             {[
@@ -284,10 +243,10 @@ const Services = () => {
                 <div className="flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 mx-auto mb-3 lg:mb-4 rounded-full bg-gradient-to-br from-white to-gray-50 border border-[#5E503F]/10">
                   <img src={stat.icon} alt="stat-icon" className="w-6 h-6 lg:w-7 lg:h-7" />
                 </div>
-                <div className="text-2xl lg:text-3xl font-bold mb-1 text-center" style={{ color: stat.color }}>
+                <div className="text-2xl font-bold mb-1 text-center" style={{ color: stat.color }}>
                   {stat.value}
                 </div>
-                <div className="text-base lg:text-lg font-semibold text-[#0A0908] mb-1 text-center">
+                <div className="text-sm lg:text-base font-semibold text-[#0A0908] mb-1 text-center">
                   {stat.label}
                 </div>
                 <div className="text-xs lg:text-sm text-gray-500 text-center">
@@ -311,7 +270,7 @@ const Services = () => {
               className="absolute inset-0 bg-gradient-to-r from-[#5E503F]/20 to-[#C6AC8F]/20 rounded-2xl lg:rounded-3xl blur-xl"
             ></motion.div>
             
-            <div className="relative bg-gradient-to-r from-[#5E503F] to-[#C6AC8F] p-8 lg:p-12 rounded-2xl lg:rounded-3xl border border-white/20 shadow-xl overflow-hidden">
+            <div className="relative bg-gradient-to-r from-[#5E503F] to-[#C6AC8F] p-4 rounded-2xl lg:rounded-3xl border border-white/20 shadow-xl overflow-hidden">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
@@ -329,11 +288,11 @@ const Services = () => {
                   <SparklesIcon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                 </motion.div>
                 
-                <h3 className="text-2xl lg:text-4xl font-bold text-white mb-3 lg:mb-4">
+                <h3 className="text-2xl lg:text-2xl font-bold text-white mb-3 lg:mb-4">
                   Ready to Build Your Vision?
                 </h3>
                 
-                <p className="text-white/90 text-base lg:text-lg mb-6 lg:mb-8">
+                <p className="text-white/80 text-base mb-6 lg:mb-8">
                   Our integrated services work together seamlessly to deliver comprehensive solutions tailored to your unique needs.
                 </p>
                 
@@ -344,9 +303,9 @@ const Services = () => {
                       boxShadow: "0 15px 30px -10px rgba(255, 255, 255, 0.2)"
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-white text-[#5E503F] hover:text-[#0A0908] px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                    className="bg-white cursor-pointer text-[#5E503F] hover:text-[#0A0908] px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-sm transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
                   >
-                    <span>Start Your Project</span>
+                    <span onClick={()=>(navigate('/contact-us'), window.scrollTo(0,0))}>Start Your Project</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </motion.button>
                   
@@ -356,7 +315,8 @@ const Services = () => {
                       boxShadow: "0 15px 30px -10px rgba(255, 255, 255, 0.1)"
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-transparent border-2 border-white/50 text-white hover:bg-white/10 px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    onClick={()=>(navigate('/contact-us'), window.scrollTo(0,0))}
+                    className="bg-transparent cursor-pointer border-2 border-white/50 text-white hover:bg-white/10 px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <ChatBubbleLeftRightIcon className="w-5 h-5" />
                     <span>Contact Us</span>
@@ -366,14 +326,6 @@ const Services = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Decorative bottom border */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1, delay: 1 }}
-          className="h-1 bg-gradient-to-r from-[#5E503F] via-[#C6AC8F] to-[#5E503F] rounded-full mt-12 lg:mt-16"
-        />
       </div>
     </section>
   );
@@ -469,16 +421,6 @@ const ServiceCard = ({ item, variants, delay, onHover, isActive }) => {
           <p className="text-gray-600 text-sm lg:text-base leading-relaxed flex-1">
             {item.description}
           </p>
-
-          {/* Action button */}
-          <motion.button
-            whileHover={{ scale: 1.05, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="group/btn mt-4 lg:mt-6 flex items-center gap-2 text-sm lg:text-base font-medium text-[#5E503F] hover:text-white bg-[#5E503F]/5 hover:bg-[#5E503F] py-2.5 lg:py-3 px-4 lg:px-5 rounded-lg transition-all duration-300 border border-[#5E503F]/20 self-start"
-          >
-            <span>Learn More</span>
-            <ArrowRightIcon className="w-4 h-4 lg:w-5 lg:h-5 group-hover/btn:translate-x-1 transition-transform" />
-          </motion.button>
         </div>
 
         {/* Corner accent */}

@@ -53,6 +53,7 @@ import tanda1 from '../assets/images/tanda-1.png';
 import tanda2 from '../assets/images/tanda-2.png';
 import tanda3 from '../assets/images/tanda-3.jpg';
 import tanda4 from '../assets/images/tanda-4.jpg';
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -62,6 +63,8 @@ const Projects = () => {
   const [showScrollHint, setShowScrollHint] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const navigate = useNavigate()
 
   const projectGalleries = {
     0: [athi, athi1, athi2, athi3],
@@ -345,7 +348,7 @@ const Projects = () => {
 
   return (
     <>
-      <section className="relative min-h-[700px] bg-[#eae5df] py-16 rounded-3xl sm:rounded-4xl">
+      <section className="mx-6 lg:mx-8 relative min-h-[700px] bg-black/30 py-16 rounded-3xl sm:rounded-4xl">
         <div className="absolute inset-0 max-w-10xl mx-auto">
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5">
@@ -357,9 +360,6 @@ const Projects = () => {
             </div>
           </div>
           
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#5E503F]/20"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#5E503F]/20"></div>
         </div>
 
         <div className="relative max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -378,7 +378,7 @@ const Projects = () => {
               <div className="w-12 h-[2px] bg-[#5E503F]/40"></div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-thin mb-6">
               <span className="text-[#0A0908]">
                 Building Excellence
               </span>
@@ -809,6 +809,7 @@ const Projects = () => {
                       className="flex-1 bg-[#5E503F] hover:bg-[#0A0908] text-white px-4 py-2.5 rounded-lg font-medium transition-all duration-300 border border-[#5E503F]"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
+                      onClick={()=>(navigate("/contact-us"), window.scrollTo(0,0))}
                     >
                       Contact for Quote
                     </motion.button>
