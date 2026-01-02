@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-import estate from "../assets/images/estate.jpg";
-import build from "../assets/images/build.jpg";
-import int from "../assets/images/int.jpg";
-import resid from "../assets/images/resid.jpg";
-import prod from "../assets/images/prod.jpg";
+import estate from "../assets/images/estate.jpeg";
+import build from "../assets/images/build.jpeg";
+import int from "../assets/images/int.jpeg";
+import resid from "../assets/images/resid.jpeg";
+import prod from "../assets/images/prod.jpeg";
+import focusImage from "../assets/images/focus.jpg";
 
 const Focus = () => {
   const [activeCard, setActiveCard] = useState(0);
@@ -72,7 +73,8 @@ const Focus = () => {
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-5 sm:py-5 lg:py-5 bg-[#EAE0D5]">
       <div className="max-w-10xl mx-auto">
-        <div className="rounded-3xl sm:rounded-4xl shadow-xl bg-gradient-to-br from-[#EAE0D5] to-[#D9CBB8] overflow-hidden border border-[#C6AC8F]">
+        <div className="rounded-3xl sm:rounded-4xl shadow-xl overflow-hidden border border-[#C6AC8F]"
+        style={{ backgroundImage: `url(${focusImage}) bg-center bg-cover bg-no-repeat` }}>
           
           {/* Content Section - Full Width */}
           <div className="flex flex-col p-6 sm:p-8 lg:p-10 xl:p-12">

@@ -12,7 +12,7 @@ import OurStory from './components/OurStory';
 
 const App = () => {
   return (
-    <div className='bg-[#EAE0D5] min-h-screen py-10'>
+    <div className='min-h-screen py-10'>
       <Navbar/>
       <div>
         <Routes>

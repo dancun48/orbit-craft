@@ -92,7 +92,7 @@ const Team = () => {
   };
 
   return (
-    <section className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gradient-to-b from-[#EAE0D5] to-[#eae5df] overflow-hidden">
+    <section className="relative px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -122,7 +122,7 @@ const Team = () => {
 
       {/* Main Container with max-w-10xl and h-[700px] */}
       <div className="relative max-w-10xl mx-auto">
-        <div className="h-auto rounded-xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm shadow-xl">
+        <div className="h-auto rounded-3xl sm:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm shadow-xl">
           <div className="h-full p-6 lg:p-8 flex flex-col">
             {/* Header Section */}
             <motion.div

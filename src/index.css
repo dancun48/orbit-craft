@@ -9,8 +9,8 @@
 /* UpwardSlidingCards.module.css */
 .container {
   font-family: sans-serif;
-  /* background: #EAE0D5; */
-  /* color: #fff; */
+  color: #fff;
+  height: 100vh;
   overflow-x: hidden;
 }
 

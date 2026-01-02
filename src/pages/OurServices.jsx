@@ -308,20 +308,7 @@ const Services = () => {
                     <span onClick={()=>(navigate('/contact-us'), window.scrollTo(0,0))}>Start Your Project</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </motion.button>
-                  
-                  <motion.button
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 15px 30px -10px rgba(255, 255, 255, 0.1)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={()=>(navigate('/contact-us'), window.scrollTo(0,0))}
-                    className="bg-transparent cursor-pointer border-2 border-white/50 text-white hover:bg-white/10 px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                    <span>Contact Us</span>
-                  </motion.button>
-                </div>
+                                  </div>
               </div>
             </div>
           </div>
