@@ -110,8 +110,8 @@ const Solution = () => {
         ref={sectionRef}
         className="relative h-auto w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
-        {/* Main Container with max-w-10xl and rounded-xl */}
-        <div className="relative w-full max-w-10xl h-auto rounded-3xl sm:rounded-4xl overflow-hidden shadow-xl">
+        {/* Main Container with container and rounded-xl */}
+        <div className="relative w-full container mx-auto sm:h-auto lg:h-[800px] rounded-3xl sm:rounded-4xl overflow-hidden shadow-xl">
           {/* Video Background - Fits within container */}
           <div className="absolute inset-0 z-0">
             <video
@@ -128,28 +128,6 @@ const Solution = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/10"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
             
-            {/* Animated particles */}
-            <div className="absolute inset-0">
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-[1px] h-[1px] bg-[#C6AC8F] rounded-full"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [0, -15, 0],
-                    opacity: [0.2, 0.6, 0.2],
-                  }}
-                  transition={{
-                    duration: 2 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2,
-                  }}
-                />
-              ))}
-            </div>
           </div>
 
           {/* Content Container - Fits within video bounds */}
@@ -181,15 +159,7 @@ const Solution = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                      Sustainability
-                    </motion.span>
-                    <motion.span 
-                      className="block text-transparent bg-clip-text bg-gradient-to-r from-[#C6AC8F] via-[#EAE0D5] to-[#C6AC8F]"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                      Goals & Vision
+                      Sustainability <span className="text-[#C6AC8F]">Goals</span>
                     </motion.span>
                   </h1>
                   
@@ -230,7 +200,7 @@ const Solution = () => {
                     animate="visible"
                     whileHover="hover"
                     custom={index}
-                    className="group relative h-full"
+                    className="group relative h-full cursor-pointer"
                   >
                     {/* Card Background Glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/15 to-transparent rounded-lg blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
@@ -252,7 +222,7 @@ const Solution = () => {
                       {/* Image Container */}
                       <motion.div 
                         whileHover={{ scale: 1.04 }}
-                        className="w-full h-28 lg:h-32 rounded-lg overflow-hidden mb-3 border border-white/10 group-hover:border-[#C6AC8F] transition-all duration-500 flex-shrink-0"
+                        className="w-full h-32 lg:h-64 rounded-lg overflow-hidden mb-3 border border-white/10 group-hover:border-[#C6AC8F] transition-all duration-500 flex-shrink-0"
                       >
                         <img 
                           src={card.image} 

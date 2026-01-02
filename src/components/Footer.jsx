@@ -26,18 +26,18 @@ const Footer = () => {
         { name: "About Us", path: "/company" },
         { name: "Projects", path: "/projects" },
         { name: "Services", path: "/services" },
-        { name: "Sustainability Goals", path: "/sustainability-goals" },
+        { name: "Sustainability Goals", path: "/company" },
         { name: "Contact Us", path: "/contact-us" }
       ],
     },
     {
       title: "Connect",
       links: [
-        { name: "Careers", path: "/careers" },
-        { name: "Partnerships", path: "/partnerships" },
-        { name: "Investors", path: "/investors" },
-        { name: "News", path: "/news" },
-        { name: "Events", path: "/events" }
+        { name: "Careers", path: "/" },
+        { name: "Partnerships", path: "/" },
+        { name: "Investors", path: "/" },
+        { name: "News", path: "/" },
+        { name: "Events", path: "/" }
       ],
     }
   ];
@@ -66,8 +66,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="px-4 sm:px-6 lg:px-8 py-12 sm:py-5">
-      <div className="max-w-10xl mx-auto">
+    <footer className="px-4 sm:px-6 lg:px-8 py-5">
+      <div className="container mx-auto">
         {/* Main Footer Content */}
         <div className="bg-gradient-to-r from-[#D6B68C] to-[#C6AC8F] rounded-3xl sm:rounded-4xl shadow-xl border border-[#B89A75] overflow-hidden">
           <div className="px-6 lg:px-12 py-10 lg:py-14">
@@ -108,7 +108,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-3 text-[#5E503F]/80 text-sm">
                     <FaEnvelope className="text-[#5E503F] flex-shrink-0" />
-                    <span>info@orbitcraft.com</span>
+                    <span>hello@orbitcraft.com</span>
                   </div>
                   <div className="flex items-center gap-3 text-[#5E503F]/80 text-sm">
                     <FaSquarePhone className="text-[#5E503F] flex-shrink-0" />
@@ -266,7 +266,7 @@ const Footer = () => {
                     className="group inline-flex items-center gap-2 text-[#5E503F]/70 hover:text-[#5E503F] text-sm transition-all duration-300"
                   >
                     <span>Designed by</span>
-                    <span className="font-bold text-[#5E503F] group-hover:text-[#C6AC8F] transition-colors duration-300">
+                    <span className="font-bold text-[#5E503F] group-hover:text-black transition-colors duration-300">
                       Ozyntria Tech
                     </span>
                     <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">

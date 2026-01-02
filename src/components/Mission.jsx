@@ -6,9 +6,9 @@ const Mission = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-5 sm:py-5 lg:py-5 bg-[#EAE0D5]">
-      <div className="max-w-10xl mx-auto">
-        <div className="flex lg:flex-row rounded-3xl sm:rounded-4xl shadow-xl bg-[#eae5df] overflow-hidden border border-[#C6AC8F] h-[700px]">
+    <section className="py-5 sm:py-5 lg:py-5">
+      <div className="container mx-auto">
+        <div className="flex lg:flex-row rounded-3xl sm:rounded-4xl bg-[#eae5df] overflow-hidden border border-[#C6AC8F] h-[700px]">
           {/* Content Section */}
           <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12 w-full lg:w-1/2">
             <div className="mb-4">
@@ -30,7 +30,7 @@ const Mission = () => {
             </p>
 
             <button
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/company")}
               aria-label="Learn more about our story"
               className="group relative inline-flex items-center justify-center w-fit px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-[#C6AC8F] border-2 border-[#C6AC8F] rounded-full overflow-hidden transition-all duration-500 hover:text-[#0A0908] focus:outline-none focus:ring-2 focus:ring-[#C6AC8F] focus:ring-offset-2"
             >

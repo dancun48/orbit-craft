@@ -12,13 +12,13 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden container mx-auto py-5">
       {/* Full-width container with fixed height */}
       <div className="w-full h-[700px]">
         {/* Video container - takes full height with proper spacing */}
-        <div className="relative h-full mx-4 sm:mx-6 lg:mx-8">
+        <div className="relative h-full">
           {/* Video with rounded corners - full height */}
-          <div className="relative h-full rounded-3xl sm:rounded-4xl overflow-hidden border-2 border-[#C6AC8F]/20 shadow-xl">
+          <div className="relative h-full rounded-3xl sm:rounded-4xl overflow-hidden border-2 border-[#C6AC8F]/20">
             <video
               className="absolute inset-0 w-full h-full object-cover"
               autoPlay

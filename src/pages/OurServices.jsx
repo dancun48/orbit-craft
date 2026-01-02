@@ -161,7 +161,7 @@ const Services = () => {
   return (
     <section 
       ref={sectionRef}
-      className="mx-6 lg:mx-8 rounded-3xl lg:rounded-4xl relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#C6AC8F]/90 overflow-hidden py-5"
+      className="container mx-auto rounded-3xl lg:rounded-4xl relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#C6AC8F]/90 overflow-hidden py-5"
     >
       {/* Background pattern overlay */}
       <div className="absolute inset-0 opacity-5">
@@ -172,7 +172,7 @@ const Services = () => {
       </div>
 
       {/* Main container with max-w-10xl and centered content */}
-      <div className="relative w-full max-w-10xl mx-auto">
+      <div className="relative w-full mx-auto">
         {/* Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

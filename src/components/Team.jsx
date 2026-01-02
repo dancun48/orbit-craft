@@ -13,7 +13,6 @@ const Team = () => {
       image: arnold,
       title: "Director - Corporate Affairs & Strategy",
       expertise: "Strategic Planning & Business Development",
-      years: "15+ years",
       icon: <FaBriefcase className="text-[#5E503F]" />
     },
     {
@@ -21,7 +20,6 @@ const Team = () => {
       image: bantu,
       title: "Director - Real Estate & Property Development",
       expertise: "Property Development & Market Analysis",
-      years: "12+ years",
       icon: <FaUserTie className="text-[#5E503F]" />
     },
     {
@@ -29,7 +27,6 @@ const Team = () => {
       image: okello,
       title: "Director - Design & Innovation",
       expertise: "Architecture & Sustainable Design",
-      years: "10+ years",
       icon: <FaCrown className="text-[#5E503F]" />
     },
     {
@@ -37,7 +34,6 @@ const Team = () => {
       image: jira,
       title: "Director - Construction & Operations",
       expertise: "Project Management & Engineering",
-      years: "18+ years",
       icon: <FaBriefcase className="text-[#5E503F]" />
     },
   ];
@@ -92,7 +88,7 @@ const Team = () => {
   };
 
   return (
-    <section className="relative px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
+    <section className="relative px-4 py-5 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -121,8 +117,8 @@ const Team = () => {
       </div>
 
       {/* Main Container with max-w-10xl and h-[700px] */}
-      <div className="relative max-w-10xl mx-auto">
-        <div className="h-auto rounded-3xl sm:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm shadow-xl">
+      <div className="relative container mx-auto">
+        <div className="h-auto rounded-3xl sm:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm">
           <div className="h-full p-6 lg:p-8 flex flex-col">
             {/* Header Section */}
             <motion.div
@@ -193,12 +189,10 @@ const Team = () => {
                       {/* Animated border effect */}
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#C6AC8F]/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                       
-                      {/* Experience Badge */}
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         className="absolute top-3 right-3 bg-gradient-to-r from-[#C6AC8F] to-[#5E503F] text-white text-xs font-bold px-2 py-1 rounded-full shadow-md z-10"
                       >
-                        {person.years}
                       </motion.div>
 
                       {/* Image Container */}
@@ -269,7 +263,7 @@ const Team = () => {
                           transition={{ duration: 0.4, delay: 0.1 * index }}
                           className="flex justify-center gap-2 pt-3 mt-auto border-t border-[#C6AC8F]/20"
                         >
-                          {[FaLinkedin, FaTwitter, FaEnvelope].map((Icon, idx) => (
+                          {[FaLinkedin, FaEnvelope].map((Icon, idx) => (
                             <motion.a
                               key={idx}
                               whileHover={{ scale: 1.15, y: -3 }}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/images/transparentlogo.png";
+import logo from "../assets/images/logot1.png";
 import menu_icon from "../assets/images/menu_icon.png";
 import close_icon from "../assets/images/close_icon.png";
 import { 
@@ -74,7 +74,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div
-        className={`fixed top-10 md:top-15 w-full max-w-9xl z-50 transition-all duration-500 ${
+        className={`fixed top-10 md:top-15 w-full container mx-auto z-50 transition-all duration-500 ${
           isScrolled 
             ? "py-3 bg-transparent" 
             : "py-4"
@@ -89,9 +89,9 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Orbit Craft - Consulting, Construction, Real Estate"
-                className="size-10 transition-all duration-300 group-hover:scale-105 rounded-xl"
+                className="size-20 transition-all duration-300 group-hover:scale-105 rounded-xl"
               />
-              <h2 className="text-white font-semibold text-lg">OrbitCraft</h2>
+              <h2 className="text-orange-200 font-semibold text-2xl">Orbit-Craft</h2>
             </div>
 
             <button

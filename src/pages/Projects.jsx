@@ -348,7 +348,7 @@ const Projects = () => {
 
   return (
     <>
-      <section className="mx-6 lg:mx-8 relative min-h-[700px] bg-black/30 py-16 rounded-3xl sm:rounded-4xl">
+      <section className="container mx-auto relative min-h-[700px] bg-black/30 py-16 rounded-3xl sm:rounded-4xl">
         <div className="absolute inset-0 max-w-10xl mx-auto">
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5">

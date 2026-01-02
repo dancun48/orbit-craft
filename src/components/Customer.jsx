@@ -49,9 +49,8 @@ const Customer = () => {
   ];
 
   return (
-    <section className="bg-[#EAE0D5] px-4 sm:px-6 lg:px-10 py-5">
-      <div className="max-w-10xl mx-auto bg-[#eae5df] rounded-3xl border border-[#C6AC8F] shadow-xl px-6 sm:px-10 lg:px-16 py-14">
-
+    <section className="px-4 sm:px-6 lg:px-10 py-5 sm:py-5 lg:py-5">
+      <div className="container mx-auto bg-[#eae5df] rounded-3xl border border-[#C6AC8F] shadow-xl px-6 sm:px-10 lg:px-16 py-14">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
