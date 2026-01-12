@@ -85,10 +85,9 @@ const Footer = () => {
                     <div className="absolute -inset-2 bg-gradient-to-r from-[#C6AC8F] to-[#5E503F] rounded-xl opacity-20 blur-md"></div>
                   </div>
                   <div className="text-[#000]">
-                    <h3 className="text-2xl font-bold tracking-tight mb-1">ORBIT CRAFT</h3>
+                    <h3 className="text-2xl font-bold tracking-tight mb-1">ORBIT-CRAFT</h3>
                     <div className="flex items-center gap-2">
-                      <span className="h-1 w-8 bg-[#5E503F] rounded-full"></span>
-                      <p className="text-sm font-medium text-[#5E503F]">
+                      <p className="text-xs font-thin text-[#5E503F]">
                         CONSULTING • CONSTRUCTION • REAL ESTATE
                       </p>
                     </div>
@@ -108,7 +107,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-3 text-[#5E503F]/80 text-sm">
                     <FaEnvelope className="text-[#5E503F] flex-shrink-0" />
-                    <span>hello@orbitcraft.com</span>
+                    <span>hello@orbit-craft.com</span>
                   </div>
                   <div className="flex items-center gap-3 text-[#5E503F]/80 text-sm">
                     <FaSquarePhone className="text-[#5E503F] flex-shrink-0" />

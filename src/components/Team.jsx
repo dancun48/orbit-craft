@@ -128,29 +128,15 @@ const Team = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-8 lg:mb-12 flex-shrink-0"
             >
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center justify-center gap-4 mb-4"
-              >
-                <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#C6AC8F] to-transparent"></div>
-                <span className="text-sm font-semibold tracking-widest uppercase text-[#5A503C]">
-                  Our Leadership
-                </span>
-                <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#C6AC8F] to-transparent"></div>
-              </motion.div>
-
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-thin text-[#0A0908] mb-3"
+                className="text-3xl sm:text-4xl lg:text-5xl font-thin pt-5 text-[#0A0908] mb-3"
               >
                 <span className="bg-gradient-to-r from-[#5E503F] via-[#0A0908] to-[#5E503F] bg-clip-text text-transparent">
-                  Visionary Leadership
+                  Our Leadership
                 </span>
               </motion.h2>
 
@@ -295,21 +281,6 @@ const Team = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating Decorative Elements */}
-      <motion.div
-        animate={{ 
-          y: [0, -15, 0],
-          rotate: [0, 360]
-        }}
-        transition={{ 
-          y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" }
-        }}
-        className="absolute top-8 left-8 hidden lg:block"
-      >
-        <div className="w-3 h-3 rounded-full bg-[#C6AC8F]/20 border border-[#C6AC8F]/30"></div>
-      </motion.div>
       
       <motion.div
         animate={{ 
@@ -323,7 +294,6 @@ const Team = () => {
         }}
         className="absolute bottom-8 right-8 hidden lg:block"
       >
-        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#5E503F] to-[#C6AC8F] opacity-30"></div>
       </motion.div>
     </section>
   );

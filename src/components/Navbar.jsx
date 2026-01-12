@@ -150,8 +150,8 @@ const Navbar = () => {
                       className={({ isActive }) => 
                         `w-full px-4 py-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${
                           isActive 
-                            ? 'bg-gray-300 text-red shadow-lg' 
-                            : 'text-red hover:bg-[#dac6ae] hover:text-white/70]'
+                            ? 'bg-gray-300 text-black shadow-lg' 
+                            : 'text-red hover:bg-orange-200 hover:text-white/70]'
                         }`
                       }
                       style={{ 
@@ -188,12 +188,12 @@ const Navbar = () => {
                         
                       </a>
                     ))}
-                    <span className="mx-3"></span>
                   </div>
                   <p className="text-black text-center mt-6 text-xs">
                     Follow us for updates and insights
                   </p>
                 </div>
+                <div className="mt-4 py-5"></div>
               </div>
             </div>
           </div>
