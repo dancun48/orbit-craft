@@ -1,3 +1,4 @@
+// Team.jsx - Updated with responsive design while preserving all content
 import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaTwitter, FaEnvelope, FaCrown, FaBriefcase, FaUserTie } from "react-icons/fa";
@@ -88,9 +89,9 @@ const Team = () => {
   };
 
   return (
-    <section className="relative px-4 py-5 overflow-hidden">
+    <section className="relative px-4 py-10 sm:px-6 lg:px-8 sm:py-12 lg:py-16 overflow-hidden">
       {/* Background Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ 
             rotate: 360,
@@ -100,7 +101,7 @@ const Team = () => {
             rotate: { duration: 20, repeat: Infinity, ease: "linear" },
             scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
           }}
-          className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gradient-to-br from-[#C6AC8F]/5 to-transparent border border-[#C6AC8F]/10 blur-xl"
+          className="absolute -top-10 -right-10 sm:-top-20 sm:-right-20 w-32 h-32 sm:w-64 sm:h-64 rounded-full bg-gradient-to-br from-[#C6AC8F]/5 to-transparent border border-[#C6AC8F]/10 blur-xl"
         />
         <motion.div
           animate={{ 
@@ -112,28 +113,28 @@ const Team = () => {
             repeat: Infinity, 
             ease: "easeInOut" 
           }}
-          className="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-gradient-to-tr from-[#5E503F]/5 to-transparent blur-lg"
+          className="absolute bottom-5 left-5 sm:bottom-10 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-[#5E503F]/5 to-transparent blur-lg"
         />
       </div>
 
-      {/* Main Container with max-w-10xl and h-[700px] */}
-      <div className="relative container mx-auto">
-        <div className="h-auto rounded-3xl sm:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm">
-          <div className="h-full p-6 lg:p-8 flex flex-col">
+      {/* Main Container with max-w-10xl and responsive height */}
+      <div className="relative max-w-7xl mx-auto">
+        <div className="h-auto rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm">
+          <div className="h-full p-6 sm:p-8 lg:p-12 flex flex-col">
             {/* Header Section */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-8 lg:mb-12 flex-shrink-0"
+              className="text-center mb-8 sm:mb-10 lg:mb-12 flex-shrink-0"
             >
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-thin pt-5 text-[#0A0908] mb-3"
+                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-thin pt-5 text-[#0A0908] mb-3"
               >
                 <span className="bg-gradient-to-r from-[#5E503F] via-[#0A0908] to-[#5E503F] bg-clip-text text-transparent">
                   Our Leadership
@@ -145,7 +146,7 @@ const Team = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-base text-gray-600 max-w-2xl mx-auto"
+                className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4"
               >
                 Driving innovation and excellence with decades of combined expertise
               </motion.p>
@@ -158,7 +159,7 @@ const Team = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 h-full items-center"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 h-full items-center"
               >
                 {team.map((person, index) => (
                   <motion.div
@@ -171,7 +172,7 @@ const Team = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/20 via-[#5E503F]/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Main Card */}
-                    <div className="relative bg-gradient-to-b from-white to-[#FAF7F2] p-5 rounded-xl border border-[#C6AC8F]/30 group-hover:border-[#C6AC8F]/60 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl h-full flex flex-col">
+                    <div className="relative bg-gradient-to-b from-white to-[#FAF7F2] p-4 sm:p-5 rounded-xl border border-[#C6AC8F]/30 group-hover:border-[#C6AC8F]/60 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl h-full flex flex-col">
                       {/* Animated border effect */}
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#C6AC8F]/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                       
@@ -183,7 +184,7 @@ const Team = () => {
 
                       {/* Image Container */}
                       <div className="relative mb-4 flex-shrink-0">
-                        <div className="relative w-24 h-24 mx-auto">
+                        <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto">
                           {/* Outer decorative ring */}
                           <motion.div
                             animate={{ rotate: 360 }}
@@ -192,7 +193,7 @@ const Team = () => {
                           />
                           
                           {/* Profile image with gradient border */}
-                          <div className="relative w-full h-full rounded-full overflow-hidden border-3 border-transparent bg-gradient-to-br from-[#C6AC8F] via-[#5E503F] to-[#0A0908] p-0.5">
+                          <div className="relative w-full h-full rounded-full overflow-hidden border-2 sm:border-3 border-transparent bg-gradient-to-br from-[#C6AC8F] via-[#5E503F] to-[#0A0908] p-0.5">
                             <motion.div
                               whileHover={{ scale: 1.05 }}
                               className="w-full h-full rounded-full overflow-hidden"
@@ -220,23 +221,23 @@ const Team = () => {
                       </div>
                       
                       {/* Content */}
-                      <div className="flex-1 flex flex-col text-center space-y-3">
+                      <div className="flex-1 flex flex-col text-center space-y-2 sm:space-y-3">
                         <div className="space-y-2">
                           <motion.h3
                             whileHover={{ x: 2 }}
-                            className="text-lg lg:text-xl font-bold text-[#0A0908] group-hover:text-[#5E503F] transition-colors duration-300 line-clamp-1"
+                            className="text-base sm:text-lg lg:text-xl font-bold text-[#0A0908] group-hover:text-[#5E503F] transition-colors duration-300 line-clamp-1"
                           >
                             {person.name}
                           </motion.h3>
                           
                           <motion.p
                             whileHover={{ scale: 1.02 }}
-                            className="text-[#5E503F] font-semibold text-sm line-clamp-2"
+                            className="text-[#5E503F] font-semibold text-xs sm:text-sm line-clamp-2"
                           >
                             {person.title}
                           </motion.p>
                           
-                          <p className="text-gray-600 text-xs lg:text-sm leading-relaxed line-clamp-3">
+                          <p className="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                             {person.expertise}
                           </p>
                         </div>
@@ -255,10 +256,10 @@ const Team = () => {
                               whileHover={{ scale: 1.15, y: -3 }}
                               whileTap={{ scale: 0.95 }}
                               href="#"
-                              className="w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-50 border border-[#C6AC8F]/30 flex items-center justify-center text-[#5E503F] hover:text-white hover:bg-gradient-to-br hover:from-[#5E503F] hover:to-[#0A0908] hover:border-transparent transition-all duration-300 shadow-md hover:shadow-lg"
+                              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-white to-gray-50 border border-[#C6AC8F]/30 flex items-center justify-center text-[#5E503F] hover:text-white hover:bg-gradient-to-br hover:from-[#5E503F] hover:to-[#0A0908] hover:border-transparent transition-all duration-300 shadow-md hover:shadow-lg"
                               aria-label={`Connect with ${person.name}`}
                             >
-                              <Icon className="text-xs" />
+                              <Icon className="text-xs sm:text-sm" />
                             </motion.a>
                           ))}
                         </motion.div>
@@ -275,7 +276,7 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center mt-6 pt-4 border-t border-[#C6AC8F]/20 flex-shrink-0"
+              className="text-center mt-6 sm:mt-8 pt-4 border-t border-[#C6AC8F]/20 flex-shrink-0"
             >
             </motion.div>
           </div>

@@ -108,10 +108,10 @@ const Solution = () => {
     <>
       <section 
         ref={sectionRef}
-        className="relative h-auto w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative h-auto w-full flex items-center justify-center px-responsive py-responsive overflow-hidden"
       >
         {/* Main Container with container and rounded-xl */}
-        <div className="relative w-full container mx-auto sm:h-auto lg:h-[800px] rounded-3xl sm:rounded-4xl overflow-hidden shadow-xl">
+        <div className="relative w-full container-responsive sm:h-auto lg:h-[600px] xl:h-[700px] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl">
           {/* Video Background - Fits within container */}
           <div className="absolute inset-0 z-0">
             <video
@@ -135,7 +135,7 @@ const Solution = () => {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="relative z-10 h-full p-6 lg:p-8 flex flex-col"
+            className="relative z-10 h-full p-4 sm:p-6 lg:p-8 flex flex-col"
           >
             {/* Title Section - Compact */}
             <motion.div 
@@ -147,12 +147,12 @@ const Solution = () => {
                 animate="float"
                 className="inline-block"
               >
-                <div className="w-16 h-1 bg-gradient-to-r from-[#C6AC8F] to-transparent mb-3 rounded-full"></div>
+                <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-[#C6AC8F] to-transparent mb-2 sm:mb-3 rounded-full"></div>
               </motion.div>
               
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4">
                 <div>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white mb-2 leading-tight">
+                  <h1 className="text-responsive-lg font-thin text-white mb-1 sm:mb-2 leading-tight">
                     <motion.span 
                       className="block"
                       initial={{ opacity: 0, y: 15 }}
@@ -173,7 +173,7 @@ const Solution = () => {
                 
                 {/* Divider - Vertical on larger screens */}
                 <div className="hidden sm:block">
-                  <div className="h-16 w-px bg-gradient-to-b from-transparent via-[#C6AC8F] to-transparent opacity-50"></div>
+                  <div className="h-12 sm:h-16 w-px bg-gradient-to-b from-transparent via-[#C6AC8F] to-transparent opacity-50"></div>
                 </div>
               </div>
             </motion.div>
@@ -181,7 +181,7 @@ const Solution = () => {
             {/* Horizontal Divider for mobile */}
             <motion.div
               variants={itemVariants}
-              className="mb-4 lg:mb-6 sm:hidden"
+              className="mb-3 sm:mb-4 lg:mb-6 sm:hidden"
             >
               <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C6AC8F] to-transparent opacity-50"></div>
             </motion.div>
@@ -190,7 +190,7 @@ const Solution = () => {
             <div className="flex-1 overflow-hidden">
               <motion.div 
                 variants={containerVariants}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 h-full"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 h-full"
               >
                 {cards.map((card, index) => (
                   <motion.div
@@ -203,18 +203,18 @@ const Solution = () => {
                     className="group relative h-full cursor-pointer"
                   >
                     {/* Card Background Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/15 to-transparent rounded-lg blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#C6AC8F]/15 to-transparent rounded-lg sm:rounded-xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                     
                     {/* Main Card */}
-                    <div className="relative bg-black/50 backdrop-blur-sm p-4 lg:p-5 rounded-lg border border-white/10 hover:border-[#C6AC8F]/40 transition-all duration-500 overflow-hidden h-full flex flex-col">
+                    <div className="relative bg-black/50 backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-lg sm:rounded-xl border border-white/10 hover:border-[#C6AC8F]/40 transition-all duration-500 overflow-hidden h-full flex flex-col">
                       {/* Animated Border */}
-                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#C6AC8F]/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                      <div className="absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-r from-transparent via-[#C6AC8F]/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                       
                       {/* Number Badge */}
                       <motion.div 
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.5 }}
-                        className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#C6AC8F] to-[#EAE0D5] rounded-full flex items-center justify-center text-black font-bold text-lg mb-3 shadow-lg shadow-[#C6AC8F]/20 flex-shrink-0"
+                        className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#C6AC8F] to-[#EAE0D5] rounded-full flex items-center justify-center text-black font-bold text-base sm:text-lg mb-2 sm:mb-3 shadow-lg shadow-[#C6AC8F]/20 flex-shrink-0"
                       >
                         {card.number}
                       </motion.div>
@@ -222,7 +222,7 @@ const Solution = () => {
                       {/* Image Container */}
                       <motion.div 
                         whileHover={{ scale: 1.04 }}
-                        className="w-full h-32 lg:h-64 rounded-lg overflow-hidden mb-3 border border-white/10 group-hover:border-[#C6AC8F] transition-all duration-500 flex-shrink-0"
+                        className="w-full h-32 sm:h-40 lg:h-48 xl:h-56 rounded-lg sm:rounded-xl overflow-hidden mb-2 sm:mb-3 border border-white/10 group-hover:border-[#C6AC8F] transition-all duration-500 flex-shrink-0"
                       >
                         <img 
                           src={card.image} 
@@ -235,17 +235,20 @@ const Solution = () => {
                       <div className="flex-1 flex flex-col">
                         <motion.h3 
                           whileHover={{ x: 3 }}
-                          className="text-base lg:text-lg font-semibold text-white mb-2 group-hover:text-[#C6AC8F] transition-colors duration-300 line-clamp-1"
+                          className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2 group-hover:text-[#C6AC8F] transition-colors duration-300 line-clamp-1"
                         >
                           {card.title}
                         </motion.h3>
                         
-                        <p className="text-xs lg:text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 line-clamp-3 flex-1">
+                        <p className="text-xs sm:text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 line-clamp-2 sm:line-clamp-3 flex-1">
                           {card.details}
                         </p>
                       </div>
                       
                       {/* Hover Indicator */}
+                      <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-2 h-2 rounded-full bg-[#C6AC8F]"></div>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -255,8 +258,13 @@ const Solution = () => {
             {/* Floating CTA - Bottom aligned */}
             <motion.div
               variants={itemVariants}
-              className="mt-4 lg:mt-6 pt-4 border-t border-white/10"
+              className="mt-3 sm:mt-4 lg:mt-6 pt-3 sm:pt-4 border-t border-white/10"
             >
+              <div className="text-center">
+                <p className="text-xs sm:text-sm text-gray-400">
+                  Explore our sustainable solutions for your next project
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -265,17 +273,17 @@ const Solution = () => {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-4 left-4 hidden lg:block"
+          className="absolute bottom-4 left-4 hidden sm:block"
         >
-          <div className="w-2 h-2 rounded-full bg-[#C6AC8F] opacity-30"></div>
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#C6AC8F] opacity-30"></div>
         </motion.div>
         
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-4 right-4 hidden lg:block"
+          className="absolute top-4 right-4 hidden sm:block"
         >
-          <div className="w-4 h-4 rounded-full border border-[#C6AC8F] opacity-20"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-[#C6AC8F] opacity-20"></div>
         </motion.div>
       </section>
     </>

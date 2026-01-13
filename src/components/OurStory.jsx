@@ -79,112 +79,112 @@ const OurStory = () => {
   return (
     <>
       <section
-        className="relative py-12 md:py-5 overflow-hidden"
-        aria-labelledby="our-story-heading"
-      >
-        <div className="container mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={containerVariants}
-            className="relative"
-          >
-            
-            {/* Main Card Container */}
-            <div className="bg-white/80 backdrop-blur-sm border border-[#C6AC8F]/30 rounded-3xl lg:rounded-4xl overflow-hidden shadow-2xl shadow-[#5A503C]/5">
-              <div className="grid grid-cols-1 lg:grid-cols-2 mt-">
-                {/* Left Column - Story Content */}
-                <div className="relative p-8 md:p-12 lg:p-14 xl:p-16">
-                  {/* Background Pattern */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage: `url(${house8})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      opacity: 40,
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  />
+  className="relative overflow-hidden"
+  aria-labelledby="our-story-heading"
+>
+  {/* Main container with top padding for navbar */}
+  <div className="relative mx-auto">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="relative"
+    >
+      {/* Main Card Container */}
+      <div className="bg-white/80 backdrop-blur-sm border border-[#C6AC8F]/30 rounded-3xl lg:rounded-4xl overflow-hidden shadow-2xl shadow-[#5A503C]/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Left Column - Story Content */}
+          <div className="relative p-8 md:p-12 lg:p-14 xl:p-16 pt-32 sm:pt-32 lg:pt-32">
+            {/* Background Pattern */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${house8})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: 40,
+                backgroundRepeat: "no-repeat",
+              }}
+            />
 
-                  <div className="relative z-10">
-                    {/* Header */}
-                    <motion.header variants={itemVariants}>
-                      <div className="inline-flex items-center gap-3 mb-6 mt-10">
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-[#C6AC8F] to-transparent" />
-                        <span className="text-sm font-semibold tracking-widest uppercase text-[#5A503C]">
-                          Meet Orbit-Craft
-                        </span>
-                      </div>
-
-                      <h1
-                        id="our-story-heading"
-                        className="text-4xl md:text-5xl lg:text-6xl font-light text-[#0A0908] mb-6 leading-tight"
-                      >
-                        Crafting Your Vision,
-                        <span className="block font-medium text-[#5A503C] mt-2">
-                          Building Tomorrow
-                        </span>
-                      </h1>
-                    </motion.header>
-
-                    {/* Description */}
-                    <motion.div variants={itemVariants} className="mb-8">
-                      <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                        At Orbit Craft, we blend{" "}
-                        <span className="font-semibold text-[#5A503C]">
-                          creativity
-                        </span>{" "}
-                        with{" "}
-                        <span className="font-semibold text-[#5A503C]">
-                          technical expertise
-                        </span>{" "}
-                        to transform spaces, products, and investments into
-                        lasting legacies.
-                      </p>
-
-                      <div className="bg-gradient-to-r from-[#F9F7F3] to-white p-6 rounded-2xl border border-[#C6AC8F]/20">
-                        <p className="text-gray-800 font-medium">
-                          Our multidisciplinary approach spans three core
-                          pillars, each dedicated to excellence and innovation
-                          in their respective fields.
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* CTA Button */}
-                    <motion.div variants={itemVariants}>
-                      <button
-                        onClick={() => navigate("/services")}
-                        aria-label="Explore our comprehensive services"
-                        className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-[#5A503C] to-[#C6AC8F] rounded-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-[#5A503C]/20 focus:outline-none focus:ring-2 focus:ring-[#5A503C] focus:ring-offset-2"
-                      >
-                        <span className="relative z-10 flex items-center gap-3">
-                          Discover Our Services
-                          <svg
-                            className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
-                        </span>
-                        <span className="absolute inset-0 bg-gradient-to-r from-[#C6AC8F] to-[#5A503C] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      </button>
-                    </motion.div>
-                  </div>
+            <div className="relative z-10">
+              {/* Header */}
+              <motion.header variants={itemVariants}>
+                <div className="inline-flex items-center gap-3 mb-6">
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#C6AC8F] to-transparent" />
+                  <span className="text-sm font-semibold tracking-widest uppercase text-[#5A503C]">
+                    Meet Orbit-Craft
+                  </span>
                 </div>
 
-                {/* Right Column - Services Cards */}
-                <div className="relative p-8 md:p-12 lg:p-14 xl:p-16 bg-[#d4c6ae]/70">
+                <h1
+                  id="our-story-heading"
+                  className="text-4xl md:text-5xl lg:text-6xl font-light text-[#0A0908] mb-6 leading-tight"
+                >
+                  Crafting Your Vision,
+                  <span className="block font-medium text-[#5A503C] mt-2">
+                    Building Tomorrow
+                  </span>
+                </h1>
+              </motion.header>
+
+              {/* Description */}
+              <motion.div variants={itemVariants} className="mb-8">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                  At Orbit Craft, we blend{" "}
+                  <span className="font-semibold text-[#5A503C]">
+                    creativity
+                  </span>{" "}
+                  with{" "}
+                  <span className="font-semibold text-[#5A503C]">
+                    technical expertise
+                  </span>{" "}
+                  to transform spaces, products, and investments into
+                  lasting legacies.
+                </p>
+
+                <div className="bg-gradient-to-r from-[#F9F7F3] to-white p-6 rounded-2xl border border-[#C6AC8F]/20">
+                  <p className="text-gray-800 font-medium">
+                    Our multidisciplinary approach spans three core
+                    pillars, each dedicated to excellence and innovation
+                    in their respective fields.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div variants={itemVariants}>
+                <button
+                  onClick={() => navigate("/services")}
+                  aria-label="Explore our comprehensive services"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-[#5A503C] to-[#C6AC8F] rounded-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-[#5A503C]/20 focus:outline-none focus:ring-2 focus:ring-[#5A503C] focus:ring-offset-2"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Discover Our Services
+                    <svg
+                      className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#C6AC8F] to-[#5A503C] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </button>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Right Column - Services Cards */}
+          <div className="relative p-8 md:p-12 lg:p-14 xl:p-16 bg-[#d4c6ae]/70">
                   {/* Background Image with Enhanced Overlay */}
                   <div
                     className="absolute inset-0"
@@ -297,9 +297,6 @@ const OurStory = () => {
           </motion.div>
         </div>
       </section>
-
-      <Solutions />
-      <Team />
     </>
   );
 };

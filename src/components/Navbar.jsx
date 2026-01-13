@@ -72,134 +72,182 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div
-        className={`fixed top-10 md:top-15 w-full container mx-auto z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "py-3 bg-transparent" 
-            : "py-4"
-        }`}
-      >
-        <div className="flex flex-col justify-between menu-container">
-          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-10">
+    <>
+      {/* Floating Navbar */}
+<nav className="fixed top-6 z-50 w-full flex justify-center pointer-events-none">
+<div className="pointer-events-auto w-full max-w-7xl mx-auto px-4">
+<div
+  className={`
+    flex items-center justify-between
+    rounded-2xl px-6 py-3
+    transition-all duration-500
+    ${
+      isScrolled
+        ? ""
+        : ""
+    }
+  `}
+>
+            {/* Logo */}
             <div 
-              className="flex flex-row gap-3 sm:gap-4 items-center cursor-pointer group"
+              className="flex items-center gap-2 sm:gap-3 cursor-pointer group"
               onClick={() => navigate("/")}
             >
               <img
                 src={logo}
                 alt="Orbit Craft - Consulting, Construction, Real Estate"
-                className="size-20 transition-all duration-300 group-hover:scale-105 rounded-xl"
+                className="size-10 sm:size-12 lg:size-14 transition-all duration-300 group-hover:scale-105 rounded-lg"
               />
-              <h2 className="text-orange-200 font-semibold text-2xl">Orbit-Craft</h2>
+              <h2 className={`font-semibold text-base sm:text-lg lg:text-xl transition-colors duration-300 ${
+isScrolled ? "text-[#0A0908]" : "text-white drop-shadow"
+              }`}>
+                Orbit-Craft
+              </h2>
             </div>
 
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden items-center gap-8">
+              {navItems.map((item) => (
+                <NavLink 
+                  key={item.name}
+                  to={item.path}
+                  className={({ isActive }) => 
+                    `text-sm font-medium transition-colors duration-300 ${
+                      isActive 
+                        ? isScrolled ? 'text-[#5E503F] font-semibold' : 'text-amber-300 font-semibold'
+                        : isScrolled ? 'text-gray-700 hover:text-[#5E503F]' : 'text-white/90 hover:text-amber-300'
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              ))}
+            </div>
+
+            {/* Menu Button */}
             <button
-              className="flex items-center gap-3 sm:gap-4 cursor-pointer bg-[#C6AC8F] px-4 py-2 mr-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#C6AC8F] focus:ring-opacity-50"
+              className={`flex items-center gap-2 sm:gap-3 cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 mobile-touch ${
+                isScrolled 
+                  ? "bg-[#C6AC8F] text-[#0A0908] focus:ring-[#C6AC8F]" 
+                  : "bg-white/20 backdrop-blur-sm text-white border border-white/30 focus:ring-white"
+              }`}
               onClick={() => setShowMenu(!showMenu)}
               aria-label={showMenu ? "Close menu" : "Open menu"}
               aria-expanded={showMenu}
             >
               <img
-                className="w-4 sm:w-6 transition-all duration-500 transform hover:-rotate-180 hover:-translate-y-0.1"
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all duration-500 transform hover:-rotate-180 hover:-translate-y-0.1"
                 src={showMenu ? close_icon : menu_icon}
                 alt={showMenu ? "Close menu" : "Open menu"}
               />
-              <span className="text-base sm:text-lg lg:text-base text-[#0A0908] font-light">
+              <span className="text-xs sm:text-sm font-light">
                 {showMenu ? "CLOSE" : "MENU"}
               </span>
             </button>
           </div>
+        </div>
+      </nav>
 
-          {/* Full-screen overlay menu */}
-          <div
-            className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out ${
-              showMenu
-                ? "opacity-100 visible"
-                : "opacity-0 invisible"
-            }`}
-            aria-hidden={!showMenu}
-          >
-            {/* Overlay background */}
-            <div 
-              className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-                showMenu ? "opacity-50" : "opacity-0"
-              }`}
-              onClick={() => setShowMenu(false)}
-            />
-            
-            {/* Menu panel - slides in from right */}
-            <div
-              className={`absolute top-35 right-0 h-[87vh] w-[400px] bg-[#dac6ae] shadow-2xl transition-transform duration-500 ease-in-out transform rounded-lg ${
-                showMenu 
-                  ? "translate-x-0" 
-                  : "translate-x-full"
-              }`}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Navigation menu"
-            >
-              <div className="h-full flex flex-col justify-between px-6 sm:px-8 py-8">
-                {/* Navigation items */}
-                <div className="flex flex-col gap-2 mt-12">
-                  {navItems.map((item, index) => (
-                    <NavLink 
-                      key={item.name}
-                      to={item.path}
-                      onClick={() => setShowMenu(false)}
-                      className={({ isActive }) => 
-                        `w-full px-4 py-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${
-                          isActive 
-                            ? 'bg-gray-300 text-black shadow-lg' 
-                            : 'text-red hover:bg-orange-200 hover:text-white/70]'
-                        }`
-                      }
-                      style={{ 
-                        transitionDelay: showMenu ? `${index * 75}ms` : '0ms' 
-                      }}
-                      role="menuitem"
-                    >
-                      <p className="font-semibold text-md sm:text-md">{item.name}</p>
-                    </NavLink>
-                  ))}
-                </div>
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-50 transition-all duration-500 ease-in-out ${
+          showMenu
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
+        }`}
+        aria-hidden={!showMenu}
+      >
+        {/* Overlay background */}
+        <div 
+          className={`absolute inset-0 bg-black transition-opacity duration-500 ${
+            showMenu ? "opacity-50" : "opacity-0"
+          }`}
+          onClick={() => setShowMenu(false)}
+        />
+        
+        {/* Menu panel - slides in from right */}
+        <div
+          className={`absolute top-0 right-0 h-full w-full sm:w-80 md:w-96 bg-[#dac6ae] shadow-2xl transition-transform duration-500 ease-in-out transform ${
+            showMenu 
+              ? "translate-x-0" 
+              : "translate-x-full"
+          }`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
+          <div className="h-full flex flex-col justify-between p-6 sm:p-8 safe-top safe-bottom">
+            {/* Close button at top */}
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowMenu(false)}
+                className="p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
+                aria-label="Close menu"
+              >
+                <img
+                  className="w-5 h-5"
+                  src={close_icon}
+                  alt="Close menu"
+                />
+              </button>
+            </div>
 
-                {/* Social media links */}
-                <div className="mt-auto pt-8 border-t border-[#C6AC8F]/30">
-                  <h3 className="text-black font-semibold mb-6 text-center text-sm">
-                    Connect With Us
-                  </h3>
-                  <div className="flex justify-center gap-4 sm:gap-6">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-[#C6AC8F] transform hover:scale-110 transition-all duration-300"
-                        style={{ 
-                          transitionDelay: showMenu ? `${index * 75 + 450}ms` : '0ms' 
-                        }}
-                        aria-label={`Visit our ${social.name}`}
-                      >
-                        <span className="text-2xl sm:text-xl">
-                          {social.icon}
-                        </span>
-                        
-                      </a>
-                    ))}
-                  </div>
-                  <p className="text-black text-center mt-6 text-xs">
-                    Follow us for updates and insights
-                  </p>
-                </div>
-                <div className="mt-4 py-5"></div>
+            {/* Navigation items */}
+            <div className="flex flex-col gap-2 mt-8">
+              {navItems.map((item, index) => (
+                <NavLink 
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setShowMenu(false)}
+                  className={({ isActive }) => 
+                    `w-full px-4 py-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${
+                      isActive 
+                        ? 'bg-gray-300 text-black shadow-lg' 
+                        : 'text-red hover:bg-orange-200 hover:text-white/70]'
+                    } mobile-touch`
+                  }
+                  style={{ 
+                    transitionDelay: showMenu ? `${index * 75}ms` : '0ms' 
+                  }}
+                  role="menuitem"
+                >
+                  <p className="font-semibold text-lg sm:text-xl">{item.name}</p>
+                </NavLink>
+              ))}
+            </div>
+
+            {/* Social media links */}
+            <div className="mt-auto pt-8 border-t border-[#C6AC8F]/30">
+              <h3 className="text-black font-semibold mb-5 text-center text-base">
+                Connect With Us
+              </h3>
+              <div className="flex justify-center gap-4 sm:gap-5">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-[#C6AC8F] transform hover:scale-110 transition-all duration-300 mobile-touch"
+                    style={{ 
+                      transitionDelay: showMenu ? `${index * 75 + 450}ms` : '0ms' 
+                    }}
+                    aria-label={`Visit our ${social.name}`}
+                  >
+                    <span className="text-2xl sm:text-2xl">
+                      {social.icon}
+                    </span>
+                  </a>
+                ))}
               </div>
+              <p className="text-black text-center mt-5 text-sm">
+                Follow us for updates and insights
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

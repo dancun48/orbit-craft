@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     font-family: sans-serif;
@@ -5,6 +6,37 @@
 }
 
 @import "tailwindcss";
+
+/* Responsive Utilities */
+@layer utilities {
+  .px-responsive {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+  
+  .py-responsive {
+    @apply py-5 sm:py-6 lg:py-8;
+  }
+  
+  .container-responsive {
+    @apply mx-auto w-full max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+  
+  .gap-responsive {
+    @apply gap-4 sm:gap-5 lg:gap-6 xl:gap-8;
+  }
+}
 
 /* UpwardSlidingCards.module.css */
 .container {
@@ -33,4 +65,45 @@
   text-align: center;
 }
 
-/* ... other styles */
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .mobile-touch {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .mobile-text {
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+}
+
+/* Safe area for notches */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Improved image rendering */
+img {
+  @apply max-w-full h-auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+img.pixelated {
+  image-rendering: pixelated;
+}

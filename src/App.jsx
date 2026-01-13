@@ -8,26 +8,26 @@ import Home from './components/Home';
 import OurServices from './pages/OurServices';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
-import OurStory from './components/OurStory';
+import About from './components/About';
 
 const App = () => {
   return (
-    <div className='min-h-screen py-10'>
-      <Navbar/>
-      <div>
+    <div className="min-h-screen bg-[#EAE0D5]">
+      <Navbar />
+      <main className="px-responsive py-responsive">
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/company' element={<OurStory />} />
+          <Route path='/company' element={<About />} />
           <Route path='/services' element={<OurServices />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/contact-us' element={<Contact />} />
         </Routes>
-      </div>
+      </main>
       <WhatsAppFloat />
-      <Footer /> 
+      <Footer />
       <ScrollToTop />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
