@@ -66,8 +66,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="px-responsive py-6 sm:py-8 lg:py-10 safe-bottom">
-      <div className="container-responsive">
+    <footer className="px-responsive safe-bottom">
+      <div className="mx-auto">
         {/* Main Footer Content */}
         <div className="bg-gradient-to-r from-[#D6B68C] to-[#C6AC8F] rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-xl border border-[#B89A75] overflow-hidden">
           <div className="p-4 sm:p-6 lg:p-8 xl:p-10 py-6 sm:py-8 lg:py-10">
@@ -75,7 +75,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 mb-8 sm:mb-10 lg:mb-12">
               {/* Column 1: Brand Info */}
               <div className="lg:col-span-1">
-                <div className="flex items-start gap-3 sm:gap-4 lg:gap-5 mb-4 sm:mb-5 lg:mb-6">
+                <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 mb-4 sm:mb-5 lg:mb-6">
                   <div className="relative">
                     <img
                       src={logo}

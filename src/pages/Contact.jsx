@@ -44,7 +44,7 @@ const Contact = () => {
     <div className="mx-auto w-full">
       {/* CONSTRAINED BACKGROUND IMAGE */}
       <div
-        className="relative container-responsive bg-cover bg-center rounded-3xl sm:rounded-3xl lg:rounded-4xl overflow-hidden"
+        className="relative mx-auto bg-cover bg-center rounded-3xl sm:rounded-3xl lg:rounded-4xl overflow-hidden"
         style={{ backgroundImage: `url(${contact})` }}
       >
         {/* Overlay */}

@@ -89,7 +89,7 @@ const Team = () => {
   };
 
   return (
-    <section className="relative px-4 py-10 sm:px-6 lg:px-8 sm:py-12 lg:py-16 overflow-hidden">
+    <section className="relative mx-auto pt-10 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -118,7 +118,7 @@ const Team = () => {
       </div>
 
       {/* Main Container with max-w-10xl and responsive height */}
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative mx-auto">
         <div className="h-auto rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden border border-[#C6AC8F]/20 bg-black/30 backdrop-blur-sm">
           <div className="h-full p-6 sm:p-8 lg:p-12 flex flex-col">
             {/* Header Section */}

@@ -9,7 +9,10 @@ const Home = () => {
     <div>
         <Hero />
         <Mission />
-        <Focus />
+        <div className="pt-10">
+                  <Focus />
+
+        </div>
         <Customer />
     </div>
   )

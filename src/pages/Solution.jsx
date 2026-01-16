@@ -108,10 +108,10 @@ const Solution = () => {
     <>
       <section 
         ref={sectionRef}
-        className="relative h-auto w-full flex items-center justify-center px-responsive py-responsive overflow-hidden"
+        className="relative h-auto mx-auto flex items-center justify-center pt-10 overflow-hidden"
       >
         {/* Main Container with container and rounded-xl */}
-        <div className="relative w-full container-responsive sm:h-auto lg:h-[600px] xl:h-[700px] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-auto rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl">
           {/* Video Background - Fits within container */}
           <div className="absolute inset-0 z-0">
             <video
@@ -145,12 +145,12 @@ const Solution = () => {
               <motion.div
                 variants={floatingVariants}
                 animate="float"
-                className="inline-block"
+                className="inline-block mb-2 sm:mb-3"
               >
                 <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-[#C6AC8F] to-transparent mb-2 sm:mb-3 rounded-full"></div>
               </motion.div>
               
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4">
+              <div className="flex flex-col justify-center items-center text-center gap-3 sm:gap-4 py-4 sm:py-6 lg:py-8">
                 <div>
                   <h1 className="text-responsive-lg font-thin text-white mb-1 sm:mb-2 leading-tight">
                     <motion.span 
@@ -169,11 +169,6 @@ const Solution = () => {
                   >
                     Pioneering eco-conscious construction solutions that blend innovation with environmental responsibility.
                   </motion.p>
-                </div>
-                
-                {/* Divider - Vertical on larger screens */}
-                <div className="hidden sm:block">
-                  <div className="h-12 sm:h-16 w-px bg-gradient-to-b from-transparent via-[#C6AC8F] to-transparent opacity-50"></div>
                 </div>
               </div>
             </motion.div>
@@ -260,7 +255,7 @@ const Solution = () => {
               variants={itemVariants}
               className="mt-3 sm:mt-4 lg:mt-6 pt-3 sm:pt-4 border-t border-white/10"
             >
-              <div className="text-center">
+              <div className="text-center mb-2 sm:mb-3">
                 <p className="text-xs sm:text-sm text-gray-400">
                   Explore our sustainable solutions for your next project
                 </p>
