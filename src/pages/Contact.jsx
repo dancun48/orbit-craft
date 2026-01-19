@@ -56,7 +56,7 @@ const Contact = () => {
           animate="visible"
           variants={fadeUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative p-4 sm:p-6 lg:p-8 py-12 sm:py-16 lg:py-20"
+          className="relative p-4 sm:p-6 lg:p-8 py-12 sm:py-16 lg:py-20 top-4"
         >
           <motion.div
             variants={stagger}
@@ -66,7 +66,7 @@ const Contact = () => {
             <motion.div variants={stagger}>
               <motion.h4
                 variants={fadeUp}
-                className="text-[#C6AC8F] uppercase tracking-[0.25em] text-xs sm:text-sm"
+                className="text-[#C6AC8F] uppercase tracking-[0.25em] text-xs sm:text-sm pt-3"
               >
                 Get In Touch
               </motion.h4>

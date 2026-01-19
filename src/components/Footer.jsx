@@ -107,7 +107,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 text-[#5E503F]/80 text-xs sm:text-sm">
                     <FaEnvelope className="text-[#5E503F] flex-shrink-0 text-sm sm:text-base" />
-                    <span>hello@orbit-craft.com</span>
+                    <span>hello@orbit-craft.co.ke</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 text-[#5E503F]/80 text-xs sm:text-sm">
                     <FaSquarePhone className="text-[#5E503F] flex-shrink-0 text-sm sm:text-base" />

@@ -370,11 +370,9 @@ const Projects = () => {
             className="text-center mb-8 sm:mb-10 lg:mb-12"
           >
             <div className="inline-flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 sm:w-10 lg:w-12 h-[2px] bg-[#5E503F]/40"></div>
               <span className="text-xs sm:text-sm font-semibold text-[#5E503F] tracking-wider uppercase">
                 Our Portfolio
               </span>
-              <div className="w-8 sm:w-10 lg:w-12 h-[2px] bg-[#5E503F]/40"></div>
             </div>
             
             <h1 className="text-responsive-lg font-thin mb-4 sm:mb-5 lg:mb-6">

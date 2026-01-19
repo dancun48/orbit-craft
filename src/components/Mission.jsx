@@ -120,7 +120,7 @@ const Mission = () => {
                                focus:outline-none focus:ring-2 focus:ring-[#C6AC8F] focus:ring-offset-2
                                hover:shadow-lg hover:shadow-[#5E503F]/20 transform hover:-translate-y-0.5 cursor-pointer"
                     >
-                      <span className="relative z-10 h-32 w-22 rounded-full flex items-center justify-center">
+                      <span className="relative z-10 md:h-32 md:w-22 sm:h-6 sm:w-6 sm: rounded-full flex items-center justify-center">
                         LEARN MORE
                       </span>
                       <span className="absolute inset-0 bg-gradient-to-r from-[#5E503F] to-[#C6AC8F] 
