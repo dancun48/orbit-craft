@@ -17,6 +17,7 @@ import {
   ArrowsUpDownIcon,
   MagnifyingGlassIcon
 } from "@heroicons/react/24/outline";
+import {Helmet} from "react-helmet-async";
 
 // Import images (same as before)
 import athi from '../assets/images/athi.png';
@@ -348,7 +349,40 @@ const Projects = () => {
 
   return (
     <>
-<section className="container-responsive relative min-h-[500px] sm:min-h-[600px] bg-black/30 rounded-3xl sm:rounded-3xl lg:rounded-4xl">
+     <Helmet>
+        {/* Primary SEO */}
+        <title>Our Projects | Orbit Craft Architects & Builders Kenya</title>
+        <meta
+          name="description"
+          content="Explore Orbit Craft’s portfolio of residential, commercial, and institutional construction projects across Kenya. Quality, innovation, and excellence."
+        />
+        <meta
+          name="keywords"
+          content="construction projects Kenya, residential homes Kenya, commercial buildings Kenya, Orbit Craft, architects Kenya"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.orbit-craft.co.ke/projects" />
+
+        {/* Open Graph (WhatsApp, LinkedIn, Facebook) */}
+        <meta property="og:title" content="Our Projects | Orbit Craft" />
+        <meta
+          property="og:description"
+          content="View completed and ongoing construction projects by Orbit Craft across Kenya."
+        />
+        <meta property="og:image" content="https://www.orbit-craft.co.ke/projects" />
+        <meta property="og:url" content="https://www.orbit-craft.co.ke/projects" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Projects | Orbit Craft" />
+        <meta
+          name="twitter:description"
+          content="Browse Orbit Craft’s featured construction projects across Kenya."
+        />
+        <meta name="twitter:image" content="https://www.orbit-craft.co.ke/projects" />
+      </Helmet>
+<section className="relative mx-auto min-h-[500px] sm:min-h-[600px] bg-black/30 rounded-3xl sm:rounded-3xl lg:rounded-4xl">
         <div className="absolute inset-0 max-w-10xl mx-auto">
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5">
@@ -648,9 +682,12 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 overflow-y-auto modal-content p-4 sm:p-5 lg:p-6">
-                  {/* Image Gallery */}
-                  <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden mb-4 group border border-[#5E503F]/20">
+<div className="flex-1 overflow-y-auto modal-content p-4 sm:p-5 lg:p-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+          <div className="md:sticky md:top-6">
+                              {/* Image Gallery */}
+                  <div className="relative h-48 sm:h-56 md:h-auto rounded-lg overflow-hidden mb-4 group border border-[#5E503F]/20">
                     <motion.img
                       key={currentImageIndex}
                       src={selectedProjectData.gallery[currentImageIndex]}
@@ -708,7 +745,11 @@ const Projects = () => {
                     </div>
                   )}
 
-                  {/* Quick Info Section */}
+
+          </div>
+          {/* RIGHT COLUMN — Content */}
+<div className="flex flex-col gap-5">
+                    {/* Quick Info Section */}
                   <div className="mb-4 sm:mb-5 lg:mb-6 p-3 sm:p-4 bg-white rounded-lg border border-[#5E503F]/20">
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       {[
@@ -781,6 +822,10 @@ const Projects = () => {
                     </p>
                   </div>
                 </div>
+                </div>
+
+</div>
+
 
                 {/* Footer */}
                 <div className="p-4 sm:p-5 lg:p-6 border-t border-[#5E503F]/20 bg-white/50">
