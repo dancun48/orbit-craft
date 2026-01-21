@@ -19,7 +19,7 @@ const Hero = () => {
         {/* Video container - full height */}
         <div className="relative h-full">
           {/* Video with rounded corners - adjust top spacing for navbar */}
-          <div className="relative h-full rounded-3xl sm:rounded-3xl lg:rounded-4xl overflow-hidden border-2 border-[#C6AC8F]/20 mt-4 sm:mt-0">
+          <div className="relative h-full rounded-3xl sm:rounded-3xl lg:rounded-4xl overflow-hidden border-2 border-[#C6AC8F]/20">
             <video
               className="absolute inset-0 w-full h-full object-cover"
               autoPlay

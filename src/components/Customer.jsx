@@ -57,7 +57,7 @@ const Customer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-14 text-center md:text-center lg:text-center sm:text-left"
         >
           <p className="mb-4 inline-block text-sm font-medium tracking-widest uppercase text-[#5A503C] border-b-2 border-[#C6AC8F] pb-2">
             Our Process
@@ -129,7 +129,7 @@ const Customer = () => {
             <h3 className="text-xl font-bold text-[#5E503F] mb-4">
               Bringing Together the Best of Private Living and Investment
             </h3>
-            <p className="text-base text-[#0A0908]/50 leading-relaxed">
+            <p className="text-base lg:text-base sm:text-sm text-[#0A0908]/50 leading-relaxed">
               Our comprehensive approach maximizes land use while creating sustainable income streams,
               delivering lifestyle and investment value in every development we undertake.
             </p>
