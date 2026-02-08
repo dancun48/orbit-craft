@@ -20,7 +20,7 @@ const Team = () => {
       name: "Bantu Mwaura",
       image: bantu,
       title: "Director - Commercial Affairs",
-      expertise: "Property Development & Market Analysis",
+      expertise: "Commerce & Property Development",
       icon: <FaUserTie className="text-[#5E503F]" />
     },
     {
