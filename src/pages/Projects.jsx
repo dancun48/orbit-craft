@@ -71,7 +71,7 @@ const Projects = () => {
     0: [athi, athi1, athi2, athi3],
     1: [stjames, stjames1, stjames2, stjames3],
     2: [limuru, limuru1, limuru2, limuru3],
-    3: [kakamega, kakamega1, kakamega2, kakamega3],
+    3: [kakamega, kakamega1, kakamega2],
     4: [joska, joska1, joska2, joska3],
     5: [nun, nun1, nun2, nun3, nun4],
     6: [ruiru],

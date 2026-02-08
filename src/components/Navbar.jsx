@@ -75,7 +75,7 @@ const Navbar = () => {
     <>
       {/* Floating Navbar */}
 <nav className="fixed top-8 z-50 w-full flex justify-center pointer-events-none">
-<div className="pointer-events-auto w-full max-w-10xl mx-auto px-4">
+<div className="pointer-events-auto w-full max-w-10xl mx-auto px-6">
 <div
   className={`
     flex items-center justify-between

@@ -85,7 +85,7 @@ const Footer = () => {
                     <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#C6AC8F] to-[#5E503F] rounded-lg sm:rounded-xl opacity-20 blur-md"></div>
                   </div>
                   <div className="text-[#000]">
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-1">ORBIT-CRAFT</h3>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-1">OrbitCraft</h3>
                     <div className="flex items-center gap-1 sm:gap-2">
                       <p className="text-xs font-thin text-[#5E503F]">
                         CONSULTING • CONSTRUCTION • REAL ESTATE
