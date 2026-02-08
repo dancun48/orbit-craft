@@ -75,7 +75,7 @@ const Navbar = () => {
     <>
       {/* Floating Navbar */}
 <nav className="fixed top-8 z-50 w-full flex justify-center pointer-events-none">
-<div className="pointer-events-auto w-full max-w-7xl mx-auto px-4">
+<div className="pointer-events-auto w-full max-w-10xl mx-auto px-4">
 <div
   className={`
     flex items-center justify-between
@@ -101,7 +101,7 @@ const Navbar = () => {
               <h2 className={`font-semibold text-base sm:text-lg lg:text-xl transition-colors duration-300 ${
 isScrolled ? "text-[#0A0908]" : "text-white drop-shadow"
               }`}>
-                Orbit-Craft
+                OrbitCraft
               </h2>
             </div>
 
