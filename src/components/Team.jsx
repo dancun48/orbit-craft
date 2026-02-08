@@ -12,19 +12,19 @@ const Team = () => {
     {
       name: "Arnold Ochieng",
       image: arnold,
-      title: "Director - Corporate Affairs & Strategy",
+      title: "Director - Development Management",
       expertise: "Strategic Planning & Business Development",
       icon: <FaBriefcase className="text-[#5E503F]" />
     },
     {
       name: "Bantu Mwaura",
       image: bantu,
-      title: "Director - Real Estate & Property Development",
+      title: "Director - Commercial Affairs",
       expertise: "Property Development & Market Analysis",
       icon: <FaUserTie className="text-[#5E503F]" />
     },
     {
-      name: "Eugene Jack",
+      name: "Okello Otieno",
       image: okello,
       title: "Director - Design & Innovation",
       expertise: "Architecture & Sustainable Design",

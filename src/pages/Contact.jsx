@@ -29,28 +29,53 @@ const Contact = () => {
     message: ""
   });
 
+  const [status, setStatus] = useState("");
+  const ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((p) => ({ ...p, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for your message. We'll get back to you shortly.");
-    setFormData({ fullName: "", email: "", message: "" });
+    setStatus("Sending...");
+
+    const data = new FormData();
+    data.append("access_key", ACCESS_KEY);
+    data.append("name", formData.fullName);
+    data.append("email", formData.email);
+    data.append("message", formData.message);
+    data.append("subject", "New message from Orbit Craft website");
+    data.append("from_name", "Orbit Craft Website");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setStatus("Message sent successfully!");
+        setFormData({ fullName: "", email: "", message: "" });
+      } else {
+        setStatus("Something went wrong. Try again.");
+      }
+    } catch (error) {
+      setStatus("Network error. Please try later.");
+    }
   };
 
   return (
     <div className="mx-auto w-full">
-      {/* CONSTRAINED BACKGROUND IMAGE */}
       <div
         className="relative mx-auto bg-cover bg-center rounded-3xl sm:rounded-3xl lg:rounded-4xl overflow-hidden"
         style={{ backgroundImage: `url(${contact})` }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* CONTENT */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -83,6 +108,8 @@ const Contact = () => {
                 variants={stagger}
                 className="space-y-4 sm:space-y-6 max-w-xl"
               >
+                <input type="checkbox" name="botcheck" style={{ display: "none" }} />
+
                 {["fullName", "email"].map((field) => (
                   <motion.input
                     key={field}
@@ -115,15 +142,16 @@ const Contact = () => {
                 >
                   Send Message
                 </motion.button>
+
+                {status && (
+                  <p className="text-sm text-[#C6AC8F] mt-2">{status}</p>
+                )}
               </motion.form>
             </motion.div>
 
             {/* RIGHT – INFO */}
             <motion.div variants={stagger} className="space-y-8 lg:space-y-12 mt-8 lg:mt-0">
-              <motion.h3
-                variants={fadeUp}
-                className="text-responsive-base font-semibold text-[#EAE0D5]"
-              >
+              <motion.h3 variants={fadeUp} className="text-responsive-base font-semibold text-[#EAE0D5]">
                 Contact Information
               </motion.h3>
 
@@ -145,18 +173,12 @@ const Contact = () => {
                     text: "hello@orbit-craft.co.ke"
                   }
                 ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className="flex items-start gap-3 sm:gap-4"
-                  >
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-3 sm:gap-4">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#C6AC8F] flex items-center justify-center text-[#C6AC8F] flex-shrink-0">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-[#C6AC8F] text-xs sm:text-sm uppercase tracking-wide">
-                        {item.title}
-                      </p>
+                      <p className="text-[#C6AC8F] text-xs sm:text-sm uppercase tracking-wide">{item.title}</p>
                       <p className="text-[#EAE0D5] text-sm sm:text-base mt-1">{item.text}</p>
                     </div>
                   </motion.div>
@@ -165,14 +187,21 @@ const Contact = () => {
 
               {/* SOCIALS */}
               <motion.div variants={fadeUp} className="flex gap-3 sm:gap-4 pt-4">
-                {[fb, ig, ld, tt].map((icon, i) => (
+                {[
+                  { icon: fb, link: "https://www.facebook.com" },
+                  { icon: ig, link: "https://www.instagram.com" },
+                  { icon: ld, link: "https://www.linkedin.com" },
+                  { icon: tt, link: "https://www.tiktok.com" }
+                ].map((item, i) => (
                   <motion.a
                     key={i}
                     whileHover={{ scale: 1.15 }}
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/30 backdrop-blur-md flex items-center justify-center hover:border-[#C6AC8F] transition mobile-touch"
-                    href="#"
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <img src={icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <img src={item.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </motion.a>
                 ))}
               </motion.div>
