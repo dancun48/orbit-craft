@@ -614,7 +614,7 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-white rounded-lg sm:rounded-xl border border-[#5E503F]/10 p-4 sm:p-6 lg:p-8 shadow-sm"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
               {[
                 { value: '50+', label: 'Projects Completed', color: '#5E503F' },
                 { value: '10+', label: 'Years Experience', color: '#0A0908' },
