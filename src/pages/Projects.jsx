@@ -218,7 +218,7 @@ const Projects = () => {
       image: sda,
       title: "The SDA Bahati Church",
       details: "Major redevelopment to transform the current sanctuary into a larger, modern worship space for a growing congregation.",
-      location: "Bahati, Nakuru",
+      location: "Bahati, Nairobi",
       timeline: "2023 - 2024",
       status: "In Progress",
       scope: "Religious Renovation",
@@ -619,7 +619,6 @@ const Projects = () => {
                 { value: '50+', label: 'Projects Completed', color: '#5E503F' },
                 { value: '10+', label: 'Years Experience', color: '#0A0908' },
                 { value: '98%', label: 'Client Satisfaction', color: '#5E503F' },
-                { value: '25+', label: 'Industry Awards', color: '#0A0908' },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1" style={{ color: stat.color }}>
