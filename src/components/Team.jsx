@@ -33,7 +33,7 @@ const Team = () => {
     {
       name: "Christopher Jira",
       image: jira,
-      title: "Director - Construction & Operations",
+      title: "MD & Director, Construction and Operations",
       expertise: "Project Management & Engineering",
       icon: <FaBriefcase className="text-[#5E503F]" />
     },
