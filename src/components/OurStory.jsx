@@ -490,7 +490,7 @@ const OurStory = () => {
                         animate={{ opacity: [0.7, 1, 0.7] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        Trusted by <span className="font-semibold text-[#5A503C]">100+</span> clients worldwide
+                        Trusted by <span className="font-semibold text-[#5A503C]">20+</span> clients in Kenya and beyond
                       </motion.p>
                     </motion.div>
                   </div>
