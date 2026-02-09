@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import house8 from "../assets/images/house8.jpg";
 
-// Dynamic data - could be moved to a separate config file or fetched from API
+// Dynamic data
 const COMPANY_INFO = {
   name: "OrbitCraft",
   tagline: "Crafting Your Vision, Building Tomorrow",
@@ -38,6 +38,18 @@ const services = [
     link: "/services/real-estate",
     stats: { transactions: "10+", satisfaction: "99%" }
   },
+];
+
+// Floating text elements for the background
+const floatingTexts = [
+  { id: 1, text: "INNOVATION", size: "lg", delay: 0, x: "15%", y: "20%" },
+  { id: 2, text: "DESIGN", size: "md", delay: 0.3, x: "75%", y: "30%" },
+  { id: 3, text: "BUILD", size: "xl", delay: 0.6, x: "25%", y: "70%" },
+  { id: 4, text: "CREATE", size: "md", delay: 0.9, x: "80%", y: "65%" },
+  { id: 5, text: "CRAFT", size: "sm", delay: 1.2, x: "40%", y: "40%" },
+  { id: 6, text: "VISION", size: "lg", delay: 1.5, x: "60%", y: "80%" },
+  { id: 7, text: "LEGACY", size: "md", delay: 1.8, x: "10%", y: "85%" },
+  { id: 8, text: "QUALITY", size: "sm", delay: 2.1, x: "85%", y: "15%" },
 ];
 
 // Responsive breakpoints for animation
@@ -81,6 +93,28 @@ const responsiveVariants = {
       scale: 1.02,
       transition: { duration: 0.3 }
     }
+  },
+  floatText: {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom) => ({
+      opacity: 0.7,
+      y: 0,
+      transition: {
+        delay: custom.delay,
+        duration: 1,
+        ease: "easeOut"
+      }
+    }),
+    float: (custom) => ({
+      y: [0, -10, 0],
+      opacity: [0.7, 0.9, 0.7],
+      transition: {
+        delay: custom.delay + 1,
+        duration: 3 + Math.random() * 2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    })
   }
 };
 
@@ -102,15 +136,56 @@ const StatCard = ({ number, label, delay = 0 }) => (
   </motion.div>
 );
 
+// Floating Text Component
+const FloatingText = ({ text, size, delay, x, y, isMobile }) => {
+  const sizeClasses = {
+    sm: "text-xs sm:text-sm",
+    md: "text-sm sm:text-base",
+    lg: "text-base sm:text-lg",
+    xl: "text-lg sm:text-xl"
+  };
+
+  return (
+    <motion.div
+      custom={{ delay }}
+      initial="hidden"
+      animate={["visible", "float"]}
+      variants={responsiveVariants.floatText}
+      style={{
+        position: 'absolute',
+        left: x,
+        top: y,
+        pointerEvents: 'none',
+      }}
+      className={`${sizeClasses[size]} font-bold tracking-widest uppercase text-white/70 mix-blend-overlay`}
+    >
+      {text}
+    </motion.div>
+  );
+};
+
 const OurStory = () => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      setMousePosition({ x, y });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const handleServiceClick = (service) => {
@@ -125,7 +200,7 @@ const OurStory = () => {
         <title>{`Our Story | ${COMPANY_INFO.name} – ${COMPANY_INFO.tagline}`}</title>
         <meta
           name="description"
-          content={`Discover ${COMPANY_INFO.name}'s story, services, and commitment to excellence in design, construction, and real estate. Founded in ${COMPANY_INFO.foundedYear}.`}
+          content={`Discover ${COMPANY_INFO.name}'s story, services, and commitment to excellence in design, construction, and real estate.`}
         />
         <meta property="og:title" content={`Our Story | ${COMPANY_INFO.name}`} />
         <meta property="og:description" content={COMPANY_INFO.missionStatement} />
@@ -133,62 +208,131 @@ const OurStory = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center justify-center">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0" />
-        
-        <div className="relative mx-auto">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden rounded-3xl sm:rounded-3xl lg:rounded-4xl">
+        {/* Full Background Image Container with Floating Text */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${house8})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: isMobile ? 'scroll' : 'fixed',
+              filter: 'brightness(0.6) contrast(1.1) saturate(1.1)',
+            }}
+          />
+                    
+          {/* Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
+        </div>
+
+        {/* Animated Particles Background */}
+        {!isMobile && (
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-[1px] h-[1px] bg-white/30 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 2 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+        )}
+
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 rounded-3xl sm:rounded-3xl lg:rounded-4xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={responsiveVariants.container}
           >
-            <div className="bg-white/90 backdrop-blur-sm border border-[#C6AC8F]/20 rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
+            <motion.div
+              className="bg-white/30 backdrop-blur-sm border border-white/30 rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500"
+              whileHover={{ scale: 1.001 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px] lg:min-h-[600px]">
                 
-                {/* LEFT SECTION - Dynamic with Stats */}
+                {/* LEFT SECTION */}
                 <div className="relative p-6 sm:p-8 lg:p-12 xl:p-14">
-                  <div className="absolute inset-0">
-                    <div 
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `url(${house8})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundAttachment: isMobile ? 'scroll' : 'fixed',
-                        filter: 'brightness(0.6) contrast(1.1) saturate(1.1)',
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-transparent" />
-                  </div>
-
-                  <div className="mt-10 relative z-10 h-full flex flex-col justify-between">
+                  {/* Subtle animated background elements */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-transparent"
+                    animate={{
+                      backgroundPosition: ['0% 0%', '100% 100%'],
+                    }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                    }}
+                  />
+                  
+                  <div className="relative z-10 h-full flex flex-col justify-between">
                     <div>
                       <motion.header variants={responsiveVariants.item}>
-                        <span className="text-sm sm:text-sm font-semibold tracking-widest uppercase text-[#5A503C] bg-white/60 backdrop-blur-sm px-4 py-1.5 rounded-full inline-block">
+                        <motion.span 
+                          className="text-sm sm:text-sm font-semibold tracking-widest uppercase text-[#5A503C] bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full inline-block"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
                           Meet OrbitCraft
-                        </span>
+                        </motion.span>
 
-                        <h1 className="mt-20 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#0A0908] leading-tight">
+                        <motion.h1 
+                          className="mt-6 sm:mt-8 lg:mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#0A0908] leading-tight"
+                          animate={{ y: [0, -2, 0] }}
+                          transition={{ duration: 4, repeat: Infinity }}
+                        >
                           Crafting Your Vision
                           <span className="block font-medium text-[#5A503C] mt-2">
                             Building Tomorrow
                           </span>
-                        </h1>
+                        </motion.h1>
                       </motion.header>
 
                       <motion.p
                         variants={responsiveVariants.item}
-                        className="mt-10 text-base sm:text-lg text-gray-800 leading-relaxed max-w-xl bg-white/60 backdrop-blur-sm p-4 rounded-xl"
+                        className="mt-6 sm:mt-8 lg:mt-10 text-base sm:text-lg text-gray-800 leading-relaxed max-w-xl bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl"
+                        whileHover={{ 
+                          boxShadow: "0 20px 40px rgba(90, 80, 60, 0.1)",
+                          y: -2 
+                        }}
                       >
                         At {COMPANY_INFO.name}, we blend{" "}
-                        <span className="font-semibold text-[#5A503C]">
-                          creativity
+                        <span className="font-semibold text-[#5A503C] relative inline-block">
+                          <span className="relative z-10">creativity</span>
+                          <motion.span 
+                            className="absolute bottom-0 left-0 w-full h-1 bg-[#C6AC8F]/30 -z-0"
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            viewport={{ once: true }}
+                          />
                         </span>{" "}
                         with{" "}
-                        <span className="font-semibold text-[#5A503C]">
-                          technical expertise
+                        <span className="font-semibold text-[#5A503C] relative inline-block">
+                          <span className="relative z-10">technical expertise</span>
+                          <motion.span 
+                            className="absolute bottom-0 left-0 w-full h-1 bg-[#C6AC8F]/30 -z-0"
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            transition={{ duration: 0.8, delay: 0.7 }}
+                            viewport={{ once: true }}
+                          />
                         </span>{" "}
                         to transform spaces, products, and investments into
                         enduring legacies.
@@ -197,7 +341,7 @@ const OurStory = () => {
                       {/* Dynamic Stats */}
                       <motion.div 
                         variants={responsiveVariants.item}
-                        className="mt-20 grid grid-cols-3 gap-4 max-w-md"
+                        className="mt-8 sm:mt-10 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-md"
                       >
                         <StatCard 
                           number={`${COMPANY_INFO.projectsCompleted}+`} 
@@ -217,29 +361,68 @@ const OurStory = () => {
                       </motion.div>
                     </div>
 
-                    <motion.div variants={responsiveVariants.item} className="p-4">
-                      <button
+                    <motion.div 
+                      variants={responsiveVariants.item}
+                      className="mt-6 sm:mt-8"
+                      whileHover={{ y: -2 }}
+                    >
+                      <motion.button
                         onClick={() => navigate("/services")}
-                        className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-800 rounded-full
-                                   bg-gradient-to-r from-white/80 via-white/90 to-white/80
+                        className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-800
+                                   rounded-full
+                                   bg-gradient-to-r from-white/90 via-white/95 to-white/90
                                    hover:from-[#5A503C]/10 hover:via-[#C6AC8F]/20 hover:to-[#5A503C]/10
-                                   shadow-lg hover:shadow-xl transition-all duration-300 border border-white/80
-                                   hover:border-[#C6AC8F]/40 w-full sm:w-auto min-h-[44px] sm:min-h-[52px]"
+                                   shadow-lg hover:shadow-xl transition-all duration-300 border border-white/90
+                                   hover:border-[#C6AC8F]/40 w-full sm:w-auto min-h-[44px] sm:min-h-[52px]
+                                   focus:outline-none focus:ring-2 focus:ring-[#5A503C]/30 overflow-hidden"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <span>Discover Our Services</span>
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                      </button>
+                        {/* Animated background effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "100%" }}
+                          transition={{ duration: 0.6 }}
+                        />
+                        <span className="relative">Discover Our Services</span>
+                        <motion.span 
+                          className="relative group-hover:translate-x-1 transition-transform duration-300"
+                          animate={{ x: [0, 3, 0] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.button>
                     </motion.div>
                   </div>
                 </div>
 
-                {/* RIGHT SECTION - Dynamic Services */}
-                <div className="relative p-6 sm:p-8 lg:p-12 xl:p-14 bg-gradient-to-br from-[#f8f4ee] via-white to-[#f8f4ee]">
-                  <div className="h-full flex flex-col">
-                    <motion.div variants={responsiveVariants.item} className="mb-8">
-                      <p className="text-gray-600 lg:mt-10 sm:mt-6 text-lg sm:text-xl font-medium text-center underline decoration-[#C6AC8F]/30 underline-offset-4 bg-white backdrop-blur-sm px-4 py-2 rounded-full inline-block">
+                {/* RIGHT SECTION */}
+                <div className="relative p-6 sm:p-8 lg:p-12 xl:p-14">
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-[radial-gradient(#5A503C_1px,transparent_1px)] bg-[length:20px_20px]" />
+                  </div>
+                  
+                  <div className="relative z-10 h-full flex flex-col">
+                    <motion.div 
+                      variants={responsiveVariants.item}
+                      className="mb-6 sm:mb-8"
+                    >
+                      <motion.p 
+                        className="text-gray-600 text-base sm:text-lg lg:text-xl font-medium text-center underline decoration-[#C6AC8F]/30 underline-offset-4 bg-white/90 backdrop-blur-sm px-4 py-2 sm:py-3 rounded-full inline-block"
+                        animate={{ 
+                          textShadow: [
+                            "0 0 0px rgba(90, 80, 60, 0)",
+                            "0 0 10px rgba(90, 80, 60, 0.3)",
+                            "0 0 0px rgba(90, 80, 60, 0)"
+                          ]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
                         Comprehensive solutions for your needs
-                      </p>
+                      </motion.p>
                     </motion.div>
 
                     <motion.div
@@ -252,13 +435,20 @@ const OurStory = () => {
                           custom={index}
                           variants={responsiveVariants.card}
                           whileHover="hover"
-                          onClick={() => handleServiceClick("/services")}
-                          className="group bg-white/95 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#C6AC8F]/20 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-[#C6AC8F]/40"
+                          onClick={() => handleServiceClick(service)}
+                          className="group relative bg-white/95 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#C6AC8F]/20 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-[#C6AC8F]/40 overflow-hidden"
                         >
-                          <div className="flex items-start gap-3 sm:gap-4">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-[#C6AC8F] to-[#5A503C] text-white text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300">
+                          {/* Hover glow effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C6AC8F]/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                          
+                          <div className="flex items-start gap-3 sm:gap-4 relative z-10">
+                            <motion.div 
+                              className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-[#C6AC8F] to-[#5A503C] text-white text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300"
+                              animate={{ rotate: [0, 360] }}
+                              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            >
                               {service.icon}
-                            </div>
+                            </motion.div>
 
                             <div className="flex-1 min-w-0">
                               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -269,7 +459,7 @@ const OurStory = () => {
                                   <div className="flex items-center gap-2 text-xs sm:text-sm text-[#5A503C] font-medium">
                                     <span>{service.stats.satisfaction} Satisfaction</span>
                                     <span>•</span>
-                                    <span>{service.stats.projects || service.stats.transactions} Projects</span>
+                                    <span>{service.stats.projects || service.stats.transactions}</span>
                                   </div>
                                 )}
                               </div>
@@ -277,7 +467,12 @@ const OurStory = () => {
                                 {service.description}
                               </p>
                               <div className="mt-3 flex items-center gap-1 text-xs sm:text-sm text-[#5A503C] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span>Learn more</span>
+                                <motion.span
+                                  animate={{ x: [0, 5, 0] }}
+                                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                                >
+                                  Learn more
+                                </motion.span>
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                               </div>
                             </div>
@@ -288,17 +483,21 @@ const OurStory = () => {
 
                     <motion.div 
                       variants={responsiveVariants.item}
-                      className="mt-8 pt-8 border-t border-[#C6AC8F]/10"
+                      className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-[#C6AC8F]/10"
                     >
-                      <p className="text-center text-sm text-gray-500">
+                      <motion.p 
+                        className="text-center text-sm text-gray-500"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
                         Trusted by <span className="font-semibold text-[#5A503C]">100+</span> clients worldwide
-                      </p>
+                      </motion.p>
                     </motion.div>
                   </div>
                 </div>
 
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
